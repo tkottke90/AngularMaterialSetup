@@ -1,0 +1,54 @@
+:host {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+
+    z-index: 100;
+}
+
+.wraper {
+    padding: 1px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    background-color: #3a8bc2;
+
+    display: grid;
+    grid-template-columns: 90px 250px 1fr;
+}
+
+
+
+button.menu {
+    width: 50px;
+    height: 40px;
+    margin: auto;
+    box-sizing: border-box;
+
+    color: #fff;
+
+    grid-column: 1;
+}
+
+md-menu {
+    grid-column: 1;
+}
+
+#MyName {
+    grid-column: 2;
+    margin: auto 0;
+    color: #fff;
+    text-shadow: 0;
+    cursor: pointer;
+
+    transition: color 1s ease, text-shadow 1s ease;
+}
+#MyName:hover {
+    color: #3a8bc2;
+    text-shadow: 
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}

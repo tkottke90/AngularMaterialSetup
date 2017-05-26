@@ -1,0 +1,40 @@
+.spacer{
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+div#content {
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    margin-top: 20px;
+
+    grid-template-rows: 100px 200px 100px 100px 100px 100px;
+}
+
+div#content div {
+    box-sizing: border-box;
+    display: block;
+}
+
+div#intro {
+    padding: 0 20px;
+    grid-row: 1;
+}
+
+div#projects {
+    grid-row: 3;
+}
+
+div#pd {
+    grid-row: 4;
+}
+
+div#resume {
+    grid-row: 5;
+}
+
+div#contact {
+    grid-row: 6;
+}
