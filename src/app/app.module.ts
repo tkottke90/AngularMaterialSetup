@@ -8,11 +8,17 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { Component1Component } from './component1/component1.component';
 import { MaterialModule, MdButtonModule, MdCheckboxModule, MdInputContainer } from '@angular/material';
+import { IntroComponentComponent } from './intro-component/intro-component.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Component1Component
+    Component1Component,
+    IntroComponentComponent,
+    ProjectsComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

@@ -8,9 +8,8 @@ div#content {
     width: 100%;
     display: grid;
     box-sizing: border-box;
-    margin-top: 20px;
 
-    grid-template-rows: 100px 200px 100px 100px 100px 100px;
+    grid-template-rows: 200px 250px 100px 100px 100px;
 }
 
 div#content div {
@@ -19,22 +18,21 @@ div#content div {
 }
 
 div#intro {
-    padding: 0 20px;
     grid-row: 1;
 }
 
 div#projects {
-    grid-row: 3;
+    grid-row: 2;
 }
 
 div#pd {
-    grid-row: 4;
+    grid-row: 3;
 }
 
 div#resume {
-    grid-row: 5;
+    grid-row: 4;
 }
 
 div#contact {
-    grid-row: 6;
+    grid-row: 5;
 }
