@@ -9,7 +9,7 @@ div#content {
     display: grid;
     box-sizing: border-box;
 
-    grid-template-rows: 200px 250px 100px 100px 100px;
+    grid-template-rows: 200px 400px 100px 100px 100px;
 }
 
 div#content div {
@@ -23,6 +23,7 @@ div#intro {
 
 div#projects {
     grid-row: 2;
+    width: 100%;
 }
 
 div#pd {

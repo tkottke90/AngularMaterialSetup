@@ -12,6 +12,9 @@
     height: 100%;
     box-sizing: border-box;
 
+    position: relative;
+    z-index: 50;
+
     background-color: #3a8bc2;
 
     display: grid;
@@ -26,12 +29,26 @@ button.menu {
     margin: auto;
     box-sizing: border-box;
 
+    position: relative;
+    z-index: 100;
+
     color: #fff;
 
     grid-column: 1;
 }
 
+button.menuBut {
+    color: #3a8bc2;
+}
+
+button.menuBut:hover{
+    color: black;
+}
+
 md-menu {
+    position: absolute;
+    z-index: 1000;
+    background-color: #3a8bc2;
     grid-column: 1;
 }
 
