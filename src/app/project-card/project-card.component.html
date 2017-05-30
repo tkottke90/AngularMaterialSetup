@@ -1,4 +1,6 @@
 <md-card>
-  <img [src]="imageURL" alt="img" [ngClass]="{ 'hoverTarget' : isHoverTarget }">
-  <h1>{{title}}</h1>
+  <div class="imgContainer">
+    <img [src]="imageURL" alt="img" [ngClass]="{ 'hoverTarget' : isHoverTarget }">
+  </div>
+  <h1 [ngClass]="{ 'hoverTarget' : isHoverTarget }">{{title}}</h1>
 </md-card>

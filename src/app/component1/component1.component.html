@@ -1,8 +1,18 @@
 <div class="wraper">
   
-  <button md-button class="menu">
+  <button md-button class="menu" [mdMenuTriggerFor]="menu">
     <md-icon>reorder</md-icon>
   </button>
+  <md-menu #menu="mdMenu">
+      <span>Projects</span>
+    </button>
+      <span>Professional Development</span>
+    </button>
+      <span>Resume</span>
+    </button>
+      <span>Contact</span>
+    </button>
+  </md-menu>
   
   <h1 id="MyName">Thomas Kottke</h1>
 

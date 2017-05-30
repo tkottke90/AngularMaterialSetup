@@ -21,8 +21,9 @@ export class ProjectsComponent implements OnInit {
   constructor() { }
 
   myCards = [
-    new Cards("Sound Design", "http://www.google.com"),
-    new Cards("Software Engineering", "http://www.thinkgeek.com/images/products/additional/large/jipm_loz_triforce_light_vendor.jpg")
+    new Cards("Theater Design", "../../assets/Stage capture.jpg"),
+    new Cards("Software Engineering", "../../assets/Code Capture.JPG"),
+    new Cards("Drafting", "")
   ]
 
 
