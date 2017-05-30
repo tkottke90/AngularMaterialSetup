@@ -17,11 +17,12 @@ export class Cards {
 })
 export class ProjectsComponent implements OnInit {
 
+
   constructor() { }
 
   myCards = [
-    new Cards("test", "http://www.google.com"),
-    new Cards("test2", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-S90M_aS3-0CCM4mNKJ9z1CdbIoC6b4tAieckPUEfgi1n_3jT")
+    new Cards("Sound Design", "http://www.google.com"),
+    new Cards("Software Engineering", "http://www.thinkgeek.com/images/products/additional/large/jipm_loz_triforce_light_vendor.jpg")
   ]
 
 
