@@ -9,7 +9,7 @@ div#content {
     display: grid;
     box-sizing: border-box;
 
-    grid-template-rows: 200px 400px 100px 100px 100px;
+    grid-template-rows: 200px 400px 400px 100px 100px 100px;
 }
 
 div#content div {
@@ -23,18 +23,40 @@ div#intro {
 
 div#projects {
     grid-row: 2;
-    width: 100%;
 }
 
 div#pd {
     grid-row: 3;
 }
 
-div#resume {
+div#ed {
     grid-row: 4;
 }
 
-div#contact {
+div#resume {
     grid-row: 5;
 }
 
+div#contact {
+    grid-row: 6;
+}
+
+@media only screen and (max-width: 1000px){
+    div#content {
+        width: 100%;
+        display: grid;
+        box-sizing: border-box;
+
+        grid-template-rows: 200px 750px 400px 100px 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 525px){
+    div#content {
+        width: 100%;
+        display: grid;
+        box-sizing: border-box;
+
+        grid-template-rows: 200px 1450px 400px 100px 100px 100px;
+    }
+}

@@ -1,0 +1,26 @@
+:host {
+    height: 100%;
+    display: grid;
+    background-color: #3b8dc4;
+
+    padding: 0 10px;
+
+    grid-template-rows: 30px 1fr 40px;
+}
+
+h1 {
+    grid: 1;
+}
+
+div#recents{
+    grid: 2;
+}
+
+div#additionalBtn {
+    grid: 3;
+}
+
+button {
+    background-color: #fff;
+    color: #3a8bc2;
+}

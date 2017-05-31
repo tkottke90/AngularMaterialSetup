@@ -23,7 +23,8 @@ export class ProjectsComponent implements OnInit {
   myCards = [
     new Cards("Theater Design", "../../assets/Stage capture.jpg"),
     new Cards("Software Engineering", "../../assets/Code Capture.JPG"),
-    new Cards("Drafting", "../../assets/Drafting Capture.JPG")
+    new Cards("Drafting", "../../assets/Drafting Capture.JPG"),
+    new Cards("Zymology / Oenology", "")
   ]
 
 

@@ -11,6 +11,10 @@ import { MaterialModule, MdButtonModule, MdCheckboxModule, MdInputContainer } fr
 import { IntroComponentComponent } from './intro-component/intro-component.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { ProDevComponent } from './pro-dev/pro-dev.component';
+
+import { AchManager } from './services/achievement.service';
+import { ProCardComponent } from './pro-card/pro-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     Component1Component,
     IntroComponentComponent,
     ProjectsComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    ProDevComponent,
+    ProCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,7 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     MdButtonModule, 
     MdCheckboxModule
   ],
-  providers: [ MdInputContainer ],
+  providers: [ MdInputContainer, AchManager ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
