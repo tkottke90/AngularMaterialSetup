@@ -10,11 +10,12 @@ export class ProCardComponent implements OnInit {
 
   @Input() data: Achievement;
   
+  name: string = "";
+
+
   constructor() { }
 
   ngOnInit() {
-    
-
 
   }
 

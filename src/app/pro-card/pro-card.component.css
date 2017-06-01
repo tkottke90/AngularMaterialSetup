@@ -1,0 +1,31 @@
+:host {
+    width: 350px;
+    height: 250px;
+ }
+
+md-card {
+    width: inherit;
+    height: inherit;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 1em;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+
+    transition: 1s ease-in-out;
+}

@@ -16,7 +16,9 @@ export class ProDevComponent implements OnInit {
 
   ngOnInit() {
     this.AM.getRecent();
-    this.currentAchievement = this.AM.recList[this.achNav];
+    
+    this.currentAchievement = this.AM.recList.length > 0 ? this.AM.recList[this.achNav] : undefined;
+    
   }
 
 }
