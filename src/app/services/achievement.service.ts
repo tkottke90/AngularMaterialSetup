@@ -11,6 +11,13 @@ export class AchManager {
 
     recList = [];
 
+    theaterList = [
+        new Skill("Sound Design", "Intermediate",new Date(2015)),
+        new Skill("Set Design","Novice",new Date(2015)),
+        new Skill("Light Design","Novice",new Date(2015)),
+        new Skill("Costume/Makeup Design", "Beginner",new Date(2015))
+    ];
+
     getRecent(){
 
         let today = new Date();
@@ -47,4 +54,22 @@ export class Achievement{
         this.url = achURL;
     }
 
+}
+
+export class Skill {
+
+    name: string = "";
+    level: string = "";
+
+    experienceYear: Date;
+
+    masteryLevel: number = 0; // Out of 100
+    masteryDisplay: number = 4;
+
+    constructor(newName: string, lev: string, yearStarted: Date){
+        this.name = newName;
+        this.level = lev;
+        this.experienceYear = yearStarted;
+
+    }
 }

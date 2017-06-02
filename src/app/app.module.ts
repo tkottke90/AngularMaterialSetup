@@ -15,6 +15,8 @@ import { ProDevComponent } from './pro-dev/pro-dev.component';
 
 import { AchManager } from './services/achievement.service';
 import { ProCardComponent } from './pro-card/pro-card.component';
+import { SkillComponent } from './skill/skill.component';
+import { SkillContainerComponent } from './skill-container/skill-container.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProCardComponent } from './pro-card/pro-card.component';
     ProjectsComponent,
     ProjectCardComponent,
     ProDevComponent,
-    ProCardComponent
+    ProCardComponent,
+    SkillComponent,
+    SkillContainerComponent
   ],
   imports: [
     BrowserModule,

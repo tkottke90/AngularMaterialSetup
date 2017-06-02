@@ -19,6 +19,7 @@ export class ProDevComponent implements OnInit {
     
     this.currentAchievement = this.AM.recList.length > 0 ? this.AM.recList[this.achNav] : undefined;
     
+
   }
 
 }

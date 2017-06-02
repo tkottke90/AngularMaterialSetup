@@ -1,6 +1,7 @@
 :host {
     width: 350px;
     height: 250px;
+    transition: all 1s ease;
  }
 
 md-card {

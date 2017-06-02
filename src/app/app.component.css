@@ -51,6 +51,16 @@ div#contact {
     }
 }
 
+@media only screen and (max-width: 920px){
+    div#content {
+        width: 100%;
+        display: grid;
+        box-sizing: border-box;
+
+        grid-template-rows: 200px 750px 650px 100px 100px 100px;
+    }
+}
+
 @media only screen and (max-width: 525px){
     div#content {
         width: 100%;

@@ -5,7 +5,7 @@
 
     padding: 0 20px;
 
-    grid-template-rows: 30px 1fr 40px;
+    grid-template-rows: 30px 1fr 60px;
 }
 
 h2 {
@@ -33,4 +33,13 @@ div#additionalBtn {
 button {
     background-color: #fff;
     color: #3a8bc2;
+}
+
+@media only screen and (max-width: 920px){
+    
+    div#recents {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
