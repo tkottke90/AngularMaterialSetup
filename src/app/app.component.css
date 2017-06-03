@@ -47,7 +47,7 @@ div#contact {
         display: grid;
         box-sizing: border-box;
 
-        grid-template-rows: 200px 750px 400px 100px 100px 100px;
+        grid-template-rows: 200px 750px 500px 100px 100px 100px;
     }
 }
 
