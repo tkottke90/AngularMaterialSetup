@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Skill, AchManager } from '../services/achievement.service';
 
 @Component({
   selector: 'app-skill-container',
@@ -7,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillContainerComponent implements OnInit {
 
+  
 
   currentYear: number = new Date().getFullYear();
   midYear: number = this.currentYear - 5;
   firstYear: number = this.currentYear - 10;
 
-  constructor() { }
+  constructor(private AM: AchManager) { }
 
   ngOnInit() {
+
+
+
   }
 
 }

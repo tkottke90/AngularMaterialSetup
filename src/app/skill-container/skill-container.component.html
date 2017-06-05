@@ -12,5 +12,8 @@
     <div class="progress" id="p02"></div>
     <div class="progress" id="p01">{{currentYear}}</div>
   </div>
-  <app-skill></app-skill>
+  <app-skill 
+    *ngFor="let skills of AM.theaterList"
+    [skill]="skills">
+  </app-skill>
 </md-card>

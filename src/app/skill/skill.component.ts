@@ -27,7 +27,21 @@ export class SkillComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.progressBar[1] = true;
+    this.setProgress();
+    
+  }
+
+  setProgress() {
+    let currentYears = new Date().getFullYear();
+    let skillYears = this.skill.experienceYear.getFullYear();
+
+    let exp = currentYears - skillYears;
+    console.log(currentYears + " - " + skillYears + " = " + exp);
+
+    for(let i = 0; i < exp; i++){
+      console.log("this.progressBar[" + i + "] = true");
+      this.progressBar[i] = true;
+    }
   }
 
 }
