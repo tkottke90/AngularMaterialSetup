@@ -14,6 +14,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProDevComponent } from './pro-dev/pro-dev.component';
 
+import { routing } from './app.routing';
 import { AchManager } from './services/achievement.service';
 import { ProCardComponent } from './pro-card/pro-card.component';
 import { SkillComponent } from './skill/skill.component';
@@ -35,6 +36,7 @@ import { SkillContainerComponent } from './skill-container/skill-container.compo
     BrowserModule,
     FormsModule,
     HttpModule,
+    routing,
     BrowserAnimationsModule, 
     MaterialModule,
     MdButtonModule, 
