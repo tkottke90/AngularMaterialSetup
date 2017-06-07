@@ -9,20 +9,7 @@ import { Skill } from '../services/achievement.service';
 export class SkillComponent implements OnInit {
 
   @Input() skill : Skill;
-
-  progressBar: boolean[] = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  @Input() yearsLength : number;
 
   constructor() { }
 
@@ -32,16 +19,14 @@ export class SkillComponent implements OnInit {
   }
 
   setProgress() {
+
+
     let currentYears = new Date().getFullYear();
     let skillYears = this.skill.experienceYear.getFullYear();
 
     let exp = currentYears - skillYears;
     console.log(currentYears + " - " + skillYears + " = " + exp);
 
-    for(let i = 0; i < exp; i++){
-      console.log("this.progressBar[" + i + "] = true");
-      this.progressBar[i] = true;
-    }
   }
 
 }

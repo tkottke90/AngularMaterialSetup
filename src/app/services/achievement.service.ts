@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AchManager {
 
+    user = new User("tdkottke", new Date(2007,1));
+
     achList = [
         new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "../../../assets/DS Certificate.JPG","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
         new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"../../../assets/AngularJS2 Certificate.JPG","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
@@ -36,7 +38,17 @@ export class AchManager {
 
 }
 
-export class Achievement{
+export class User {
+    userID: string = "";
+    userStart: Date = new Date();
+
+    constructor(id: string, startDate: Date){
+        this.userID = id;
+        this.userStart = startDate;
+    }
+}
+
+export class Achievement {
 
     name: string = "";
     source: string = "";
