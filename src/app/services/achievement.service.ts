@@ -43,7 +43,6 @@ export class User {
     userStart: Date = new Date();
 
     constructor(id: string, startDate: Date){
-        this.userID = id;
         this.userStart = startDate;
     }
 }
