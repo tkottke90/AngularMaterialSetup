@@ -29,7 +29,17 @@ export class SkillComponent implements OnInit {
     console.log(currentYears + " - " + skillYears + " = " + exp);
     console.log("workYears: " + workYears);
 
-    
+    // Add progress bar length to boolean
+    for(let i = 0; i < workYears; i++){
+      this.progressBar.push(false);
+    }
+
+    // Populate progress bar
+    for(let i = 0; i < exp; i++){
+      
+    }
+
+
 
   }
 
