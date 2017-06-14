@@ -14,9 +14,9 @@ export class AchManager {
     recList = [];
 
     theaterList = [
-        new Skill("Sound Design", "Intermediate",new Date(2015,1)),
+        new Skill("Sound Design", "Intermediate",new Date(2007,1)),
         new Skill("Set Design","Novice",new Date(2010,1)),
-        new Skill("Light Design","Novice",new Date(2012,1))
+        new Skill("Light Design","Novice",new Date(2010,1))
     ];
 
     getRecent(){

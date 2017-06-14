@@ -14,6 +14,7 @@ export class SkillContainerComponent implements OnInit {
   midYear: number;
   firstYear: number;
 
+  strYears: string[] = [];
   years: number[] = [];
 
   constructor(private AM: AchManager) { 
@@ -23,7 +24,7 @@ export class SkillContainerComponent implements OnInit {
 
   ngOnInit() {
 
-    for(let i: number = (this.firstYear + 2); i < this.currentYear; i++){
+    for(let i: number = (this.firstYear + 1); i < this.currentYear; i++){
       this.years.push(this.firstYear + i);
     }
 

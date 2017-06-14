@@ -35,11 +35,11 @@ export class SkillComponent implements OnInit {
     }
 
     // Populate progress bar
+    let pBarLength = this.progressBar.length;
+
     for(let i = 0; i < exp; i++){
-      this.progressBar[i] = true;
+      this.progressBar[pBarLength - i] = true;
     }
-
-
 
   }
 
