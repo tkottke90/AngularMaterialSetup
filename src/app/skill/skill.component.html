@@ -1,4 +1,5 @@
-<div id="bar">
+<div id="bar" [ngClass]="{ isHoverTarget : isHoverTarget }">
+  <p id="name">{{skill.name}}</p>
   <div *ngFor="let prog of progressBar" class="progress" [ngClass]="{ progVal : prog }" ></div>
-  <p>{{skill.name}}</p>
+  <p id="years">{{time}}</p>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill, AchManager, User } from '../services/achievement.service';
+import { SkillDisplay } from '../services/skill-display.service';
 
 @Component({
   selector: 'app-skill-container',
@@ -8,32 +9,23 @@ import { Skill, AchManager, User } from '../services/achievement.service';
 })
 export class SkillContainerComponent implements OnInit {
 
-  
+  skillCat: Skill[] = []; 
 
   currentYear: number = new Date().getFullYear();
-  midYear: number;
-  firstYear: number;
+  // midYear: number; /* Depreciated */
+  firstYear: number; 
 
   strYears: string[] = [];
   years: number[] = [];
 
-  constructor(private AM: AchManager) { 
+  constructor(private AM: AchManager, private SD: SkillDisplay) { 
     console.log("userStart: " + this.AM.user.userStart);
     this.firstYear = this.AM.user.userStart.getFullYear();
   }
 
   ngOnInit() {
 
-    for(let i: number = (this.firstYear + 1); i < this.currentYear; i++){
-      this.years.push(this.firstYear + i);
-    }
-
-    this.midYear = this.currentYear - this.years.length;
-
-    console.log(this.firstYear);
-    console.log(this.currentYear);
-    console.log(this.years);
-
+    this.skillCat = this.SD.getSkillChildren(this.SD.cSkillCategory.toString());
   } 
 
 }

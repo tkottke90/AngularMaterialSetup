@@ -9,30 +9,8 @@
 
 h2 {
     text-align: center;
-    grid-column: 2;
-}
 
-button {
-    width: 20px;
-    height: 30px;
-    margin:  auto;
-}
-
-button.forward {
-    grid-column: 1
-}
-
-button.back {
-    grid-column: 3;
-}
-
-div.skillhead {
-    width: 100%;
-    height: 50px;
-    display: grid;
-    position: relative;
-
-    grid-template-columns: 20px 1fr 20px;
+    margin-bottom: 10px;
 
 }
 
@@ -45,7 +23,7 @@ div.skillhead {
     box-sizing: border-box;
     background-color: #fff;
 
-    padding: 5px;
+    padding: 5px 18px;
 
 
     display: flex;
@@ -63,14 +41,41 @@ md-card {
 
 .progress {
     width: 100%;
-    height: 35px;
+    height: 100%;
     box-sizing: border-box;
 
     position: relative;
     z-index: 50;
 
-    padding: 10px 0 0 5px;
 
     border-left: 1px dotted black;
+}
+
+.first {
+    border-right: 1px dotted black;
+}
+
+.d-year {
+    width: 40px;
+    height: 40px;
+
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 500;
+
+    top: 25%;
+
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#s-year {
+
+    left: 0;
+}
+
+#c-year {
+
+    right: 0;
 }
 

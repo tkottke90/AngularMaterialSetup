@@ -16,6 +16,7 @@ import { ProDevComponent } from './pro-dev/pro-dev.component';
 
 import { routing } from './app.routing';
 import { AchManager } from './services/achievement.service';
+import { SkillDisplay } from './services/skill-display.service';
 import { ProCardComponent } from './pro-card/pro-card.component';
 import { SkillComponent } from './skill/skill.component';
 import { SkillContainerComponent } from './skill-container/skill-container.component';
@@ -42,7 +43,7 @@ import { SkillContainerComponent } from './skill-container/skill-container.compo
     MdButtonModule, 
     MdCheckboxModule
   ],
-  providers: [ MdInputContainer, AchManager ],
+  providers: [ MdInputContainer, AchManager, SkillDisplay ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
