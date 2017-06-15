@@ -1,5 +1,9 @@
 <md-card>
-  <h2>Skills</h2>
+  <div class="skillhead">
+    <button id="back"></button>
+    <h2>Skills</h2>
+    <button id="forward"></button>
+  </div>
   <div id="scale">
     <div class="progress" >{{firstYear}}</div>
     <div 
@@ -9,7 +13,7 @@
     <div class="progress" >{{currentYear}}</div>
   </div>
   <app-skill 
-    *ngFor="let skills of AM.theaterList"
+    *ngFor="let skills of AM.skillList"
     [skill]="skills">
   </app-skill>
 </md-card>

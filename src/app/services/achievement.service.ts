@@ -13,10 +13,10 @@ export class AchManager {
 
     recList = [];
 
-    theaterList = [
-        new Skill("Sound Design", "Intermediate",new Date(2007,1)),
-        new Skill("Set Design","Novice",new Date(2010,1)),
-        new Skill("Light Design","Novice",new Date(2010,1))
+    skillList = [
+        new Skill("Sound Design/Engineering", "Intermediate",new Date(2007,1), "Theater"),
+        new Skill("Set Design/Engineering","Novice",new Date(2010,1), "Theater"),
+        new Skill("Light Design/Engineering","Novice",new Date(2010,1), "Theater")
     ];
 
     getRecent(){
@@ -73,13 +73,12 @@ export class Skill {
 
     experienceYear: Date;
 
-    masteryLevel: number = 0; // Out of 100
-    masteryDisplay: number = 4;
+    domain: string = ""
 
-    constructor(newName: string, lev: string, yearStarted: Date){
+    constructor(newName: string, lev: string, yearStarted: Date, dom: string){
         this.name = newName;
         this.level = lev;
         this.experienceYear = yearStarted;
-
+        this.domain = dom;
     }
 }
