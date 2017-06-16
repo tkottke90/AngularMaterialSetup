@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Skill, AchManager } from '../services/achievement.service';
+import { Subject } from 'rxjs/Subject';
 
 /**
  * Injectable class designed to manage which skills will be displayed based on user selections
@@ -8,15 +9,21 @@ import { Skill, AchManager } from '../services/achievement.service';
 export class SkillDisplay {
 
     cSkillCategory: Skill = null;
-    children: Skill[] = []
+    children: Skill[] = [];
+
+    childList = new Subject<Skill[]>(); 
 
     constructor(private AM: AchManager){
-        this.cSkillCategory = AM.skillCategories[1];
+        this.cSkillCategory = AM.skillCategories[0];
+        let test: Skill[] = this.getSkillChildren(this.AM.skillCategories[1].toString());
+        console.log(test);
+        this.childList.next(test);
     }
 
     updateSkill(skill: Skill){
         this.cSkillCategory = skill;
-        this.children = this.getSkillChildren(skill.toString());
+        let test: Skill[] = this.getSkillChildren(this.cSkillCategory.toString());
+        this.childList.next(test);
     }
 
     /**
@@ -25,10 +32,10 @@ export class SkillDisplay {
     getSkillChildren(skillName: string): Skill[]{
         let skills: Skill[] = []
         
-        console.log(skillName);
+        //console.log(skillName);
 
         this.AM.skillList.forEach(skill => {
-            console.log(skill.name  + " - " + skill.domain.toString());
+            //console.log(skill.name  + " - " + skill.domain.toString());
             if(skill.domain.toString() == skillName){
                 skills.push(skill);
             }

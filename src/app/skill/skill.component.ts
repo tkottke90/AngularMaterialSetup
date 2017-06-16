@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy , Input, HostListener } from '@angular/core';
 import { Skill, AchManager } from '../services/achievement.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class SkillComponent implements OnInit {
   // Component Variables
   isCategory: boolean;
   isHoverTarget: boolean = false;
+  isDestroied: boolean = false;
   progressBar: boolean[] = [];
   time: string = "";
 
@@ -31,6 +32,10 @@ export class SkillComponent implements OnInit {
   ngOnInit() {
     this.setProgress();
     this.isCategory = this.skill.domain.toString() == this.AM.rootSkill.toString();
+  }
+
+  ngOnDestroy(){
+    this.isDestroied = true;
   }
 
   // Calculates the length of the progress bar and populates fields

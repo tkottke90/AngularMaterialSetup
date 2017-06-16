@@ -42,11 +42,17 @@ export class AchManager {
         new Skill("Sound Design/Engineering", "Intermediate",new Date(2007,1), this.skillCategories[0]),
         new Skill("Set Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
         new Skill("Light Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
-        new Skill("HTML", "Novice", new Date(2017,1), this.skillCategories[1]),
+        new Skill("HTML", "Novice", new Date(2016,1), this.skillCategories[1]),
         new Skill("CSS", "Novice", new Date(2016,1),this.skillCategories[1]),
         new Skill("Typescript", "Novice", new Date(2016,1),this.skillCategories[1]),
-        new Skill("Angular2", "Novice", new Date(2017,1),this.skillCategories[1]),
-        new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2])
+        new Skill("Angular2", "Novice", new Date(2016,1),this.skillCategories[1]),
+        new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2]),
+        new Skill("Hand Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
+        new Skill("CAD Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
+        new Skill("Beer Brewing", "Intermediate", new Date(2015,1),this.skillCategories[4]),
+        new Skill("Wine Making", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+        new Skill("Vineyard Care", "Intermediate", new Date(2012,1),this.skillCategories[4]),
+        new Skill("Yeast Propigation", "Intermediate", new Date(2016,1),this.skillCategories[4]),
     ];
 
     /**

@@ -1,4 +1,4 @@
-<md-card>
+<md-card (click)="cardClick();">
   <div class="imgContainer">
     <img [src]="imageURL" alt="img" [ngClass]="{ 'hoverTarget' : isHoverTarget }">
   </div>
