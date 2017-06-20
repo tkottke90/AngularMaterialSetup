@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SkillDisplay } from '../services/skill-display.service';
+import { Skill } from '../services/achievement.service';
 
 @Component({
     selector: 'app-projectdisplay',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
     styleUrls : ['./project-display.component.css']
 })
 export class ProjectDisplay {
+
+    
+
+    constructor(private SD: SkillDisplay){}
+
+    ngOnInit(){
+
+    }
 
 }

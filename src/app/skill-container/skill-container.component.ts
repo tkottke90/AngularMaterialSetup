@@ -28,8 +28,16 @@ export class SkillContainerComponent implements OnInit {
   ngOnInit() {
     this.SD.childList.subscribe({
       next: (s) => { this.skillCat = s; console.log(s) },
-      error: (e) => console.error(e),
-      complete: () => console.log(new Date() + " - Skills Updated")
+       error: (e) => 
+        {
+          console.error(e); 
+          /* Future Dev - Log Error */
+        },
+      complete: () => 
+        {
+          console.log(new Date() + " - Skill Update Subscription Completed");
+          /* Future Dev - Log Completion */
+        }
     });
   } 
 

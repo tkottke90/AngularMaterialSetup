@@ -1,0 +1,35 @@
+:host {
+    /* Size */
+         height: 98%; 
+         width: 100%; 
+        
+         display: block; 
+         box-sizing: border-box; 
+
+    /* Location */
+        /* position: absolute; */
+        /* z-index: 1000; */
+        
+        /* top: 0px; */
+        /* left: 0px; */
+        /* right: 0px; */
+        /* bottom: 0px; */
+
+        grid-column: 1; 
+        grid-row: 1; 
+        
+        
+    /* Display */
+        /* margin: 0 0 0 0; */
+        padding: 2.5%; 
+        
+        border: 1px solid #000; 
+	    border-radius: 10px; 
+
+        background-color: #fff; 
+        /* opacity: 1; */
+
+    /* Text */
+        /* font-family: san-serif; */
+        /* color: #000; */
+}

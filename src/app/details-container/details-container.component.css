@@ -1,0 +1,100 @@
+:host {
+    /* Size */
+        height: 100%;
+        width: 100%;
+        display: grid;
+        box-sizing: border-box;
+
+    /* Location */
+        position: fixed;
+        z-index: 1000;
+        top: 0px;
+        left: 0px;
+
+
+    /* Display */
+        background-color: rgba(80,80,80,0.5);
+
+        grid-template-columns: 7.5% 1fr 7.5%;
+        grid-template-rows: 7.5% 1fr;
+        
+    /* Animations */
+        animation-name: fadeIn;
+        animation-duration: 1.5s;
+}
+
+button {
+    /* Size */
+        width: 100%;
+        
+        display: block;
+        box-sizing: border-box;
+
+    /* Location */
+        /* position: absolute; */
+        /* z-index: 1000; */
+        
+        grid-column: 3;
+
+        /* top: 0px; */
+        /* left: 0px; */
+        /* right: 0px; */
+        /* bottom: 0px; */
+
+    /* Display */
+        /* margin: 0 0 0 0; */
+        /* padding: 0 0 0 0; */
+        
+        /* background-color: #fff; */
+        opacity: 1; 
+}
+
+#display-container {
+    /* Size */
+        height: 100%;
+        width: 100%; 
+        
+        display: block;
+        box-sizing: border-box;
+
+    /* Location */
+        /* position: absolute; */
+        /* z-index: 1000; */
+        
+        /* top: 0px; */
+        /* left: 0px; */
+        /* right: 0px; */
+        /* bottom: 0px; */
+
+        grid-column: 2;
+        grid-row: 2;
+
+    /* Display */
+        /* margin: 0 0 0 0; */
+        /* padding: 0 0 0 0; */
+        
+        /*background-color: #fff;*/
+        /* opacity: 1; */
+
+    /* Text */
+        /* font-family: san-serif; */
+        /* color: #000; */
+}
+
+#projects { 
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#achievements { 
+    grid-column: 2;
+    grid-row: 2
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; } 
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; } to { opacity: 0; } 
+}

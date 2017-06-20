@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 /**
  * Designed to manage the data in the Professional Development section of the page.  Storing the data here
@@ -8,6 +9,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AchManager {
 // Base Node Data
+    rootDirectory;
     rootSkill = new Skill("_root", "N/A", new Date (2007, 1), null)
 
 // User Data
@@ -54,6 +56,21 @@ export class AchManager {
         new Skill("Vineyard Care", "Intermediate", new Date(2012,1),this.skillCategories[4]),
         new Skill("Yeast Propigation", "Intermediate", new Date(2016,1),this.skillCategories[4]),
     ];
+
+    // List of Projects
+    // projects = [
+    //     new Project 
+    //     {
+    //         "Personal Portfolio",
+    //         "Created a personal portfolio to display my work"
+    //     }
+    // ]
+
+// Methods
+
+    constructor(private db: AngularFireDatabase){
+        this.rootDirectory = db.list('./resume');
+    }
 
     /**
      * getRecent() populates the recList[] with achievements earned within the last 30 days and 
@@ -149,5 +166,25 @@ export class Skill {
 
     toString(){
         return this.name;
+    }
+}
+
+export class Project {
+    
+    name: string;
+    description: string;
+    thumbnail: string; // URL for project thumbnail
+
+    sDescription: string; // Short Description for preview
+
+    links: string[] = [];
+    downloads: string[] = [];
+
+    projectSkill: Skill;
+
+    constructor(name: string, desciption: string, skill: Skill){
+        this.name = name;
+        this.description = desciption;
+        this.projectSkill = skill;
     }
 }
