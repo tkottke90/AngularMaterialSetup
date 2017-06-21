@@ -27,6 +27,7 @@ import { routing } from './app.routing';
 import { AchManager } from './services/achievement.service';
 import { SkillDisplay } from './services/skill-display.service';
 import { DisplayInfo } from './services/display-info.service';
+import { UsageLog } from './services/site-log.service';
 
 
 
@@ -55,13 +56,15 @@ import { DisplayInfo } from './services/display-info.service';
       storageBucket: "my-test-project-5984d.appspot.com",
       messagingSenderId: "764507748270"
     }),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     routing,
     BrowserAnimationsModule, 
     MaterialModule,
     MdButtonModule, 
     MdCheckboxModule
   ],
-  providers: [ MdInputContainer, AchManager, SkillDisplay, DisplayInfo ],
+  providers: [ MdInputContainer, AchManager, SkillDisplay, DisplayInfo, UsageLog ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { FirebaseApp } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { UsageLog } from './site-log.service';
+
+import * as firebase from 'firebase';
 
 /**
  * Designed to manage the data in the Professional Development section of the page.  Storing the data here
@@ -9,7 +13,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 @Injectable()
 export class AchManager {
 // Base Node Data
-    rootDirectory;
+    rootDirectory: FirebaseListObservable<any[]>;
     rootSkill = new Skill("_root", "N/A", new Date (2007, 1), null)
 
 // User Data
@@ -21,6 +25,13 @@ export class AchManager {
         new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "../../../assets/DS Certificate.JPG","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
         new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"../../../assets/AngularJS2 Certificate.JPG","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
         new Achievement("Angular 2 Essential Training", "Lynda.com", new Date(2017,5),"../../../assets/Angular2 Essential Certificate.JPG","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html")
+    ]
+
+    // TempList
+    imgList = [
+        "../../../assets/DS Certificate.JPG","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate",
+        "../../../assets/AngularJS2 Certificate.JPG","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html",
+        "../../../assets/Angular2 Essential Certificate.JPG","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html"
     ]
 
     // List of Recent Achievemets - Populated by getRecent()
@@ -68,8 +79,47 @@ export class AchManager {
 
 // Methods
 
-    constructor(private db: AngularFireDatabase){
-        this.rootDirectory = db.list('./resume');
+    constructor(private db: AngularFireDatabase, private UL: UsageLog, @Inject(FirebaseApp) FA: any){
+        this.rootDirectory = db.list('/resume');
+        let achieve = db.list('/resume/achievements');
+        let skills = db.list('/resume/skills');
+        let projects = db.list('/resume/projects');
+
+        // Code to push lists to Firebase
+        // this.achList.forEach((skill) => {
+        //     achieve.push(skill.export());
+        // })
+
+        this.util();
+
+    }
+
+
+    util() {
+        
+        // Code to push lists to Firebase
+            // this.achList.forEach((skill) => {
+            //     achieve.push(skill.export());
+            // })
+        
+        // Upload Images to Firebase Storage
+            let uploadTask: firebase.storage.UploadTask;
+            const storageRef = firebase.storage().ref();
+
+            let files: File[];
+            let f = new File(["img"], this.imgList[1]);
+
+            uploadTask = storageRef.child('/uploads/' + f.name).put(f)
+
+            uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, 
+                (snapshot) => {
+                    console.log("Upload Progress: " + ((snapshot.bytesTransferrd / snapshot.totalBytes) * 100) + "%");
+                },
+                (error) => {console.log("Error:" + error)},
+                () => {
+                    console.log("Upload Successfull!");
+                }
+            );
     }
 
     /**
@@ -128,6 +178,16 @@ export class Achievement {
         this.url = achURL;
     }
 
+    export(){
+        return {
+            "name"  : this.name,
+            "source" : this.source,
+            "date" : this.date,
+            "url" : this.url,
+
+        }
+    }
+
     toString(){
         return this.name;
     }
@@ -162,7 +222,15 @@ export class Skill {
         this.domain = dom;
     }
 
-    
+
+    export(){
+        return {
+            "name" : this.name,
+            "startYear" : this.experienceYear.getFullYear(),
+            "level" : this.level,
+            "domain" : this.domain.name
+        }
+    }
 
     toString(){
         return this.name;
@@ -186,5 +254,14 @@ export class Project {
         this.name = name;
         this.description = desciption;
         this.projectSkill = skill;
+    }
+
+    export(){
+        let output = {
+            "name" : this.name,
+            "description" : this.description,
+            "links" :  this.links,
+            "downloads" : this.downloads
+        }
     }
 }
