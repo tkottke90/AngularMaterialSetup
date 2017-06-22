@@ -22,16 +22,9 @@ export class AchManager {
 // Lists
     // List of Achievements
     achList = [
-        new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "../../../assets/DS Certificate.JPG","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
-        new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"../../../assets/AngularJS2 Certificate.JPG","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
-        new Achievement("Angular 2 Essential Training", "Lynda.com", new Date(2017,5),"../../../assets/Angular2 Essential Certificate.JPG","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html")
-    ]
-
-    // TempList
-    imgList = [
-        "../../../assets/DS Certificate.JPG","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate",
-        "../../../assets/AngularJS2 Certificate.JPG","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html",
-        "../../../assets/Angular2 Essential Certificate.JPG","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html"
+        new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FDS%20Certificate.JPG?alt=media&token=3ed05c69-91e9-4989-aab4-7db923db5f2b","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
+        new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngularJS2%20Certificate.JPG?alt=media&token=7bfaea74-a287-4b83-8409-3d752a03fbb9","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
+        new Achievement("Angular 2 Essential Training", "Lynda.com", new Date(2017,5),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngular2%20Essential%20Certificate.JPG?alt=media&token=dc08aa13-faea-4942-b9a8-0daea12799d7","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html")
     ]
 
     // List of Recent Achievemets - Populated by getRecent()
@@ -82,12 +75,23 @@ export class AchManager {
     constructor(private db: AngularFireDatabase, private UL: UsageLog, @Inject(FirebaseApp) FA: any){
         this.rootDirectory = db.list('/resume');
         let achieve = db.list('/resume/achievements');
-        let skills = db.list('/resume/skills');
+        let skills = db.list('/resume/skills', {preserveSnapshot : true});
         let projects = db.list('/resume/projects');
 
+        // Import Lists
+
+        skills.$ref.once('value').then((skill) => {
+            skill.forEach((childskill) =>{
+                var key = childskill.key;
+                var data = childskill.val();
+
+                console.log(key + " : " + data);
+            })
+        });
+
         // Code to push lists to Firebase
-        // this.achList.forEach((skill) => {
-        //     achieve.push(skill.export());
+        // this.achList.forEach((a) => {
+        //     achieve.push(a.export());
         // })
 
         this.util();
@@ -103,23 +107,23 @@ export class AchManager {
             // })
         
         // Upload Images to Firebase Storage
-            let uploadTask: firebase.storage.UploadTask;
-            const storageRef = firebase.storage().ref();
+            // let uploadTask: firebase.storage.UploadTask;
+            // const storageRef = firebase.storage().ref();
 
-            let files: File[];
-            let f = new File(["img"], this.imgList[1]);
+            // let files: File[];
+            // let f = new File(["img"], this.imgList[1]);
 
-            uploadTask = storageRef.child('/uploads/' + f.name).put(f)
+            // uploadTask = storageRef.child('/uploads/' + f.name).put(f)
 
-            uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, 
-                (snapshot) => {
-                    console.log("Upload Progress: " + ((snapshot.bytesTransferrd / snapshot.totalBytes) * 100) + "%");
-                },
-                (error) => {console.log("Error:" + error)},
-                () => {
-                    console.log("Upload Successfull!");
-                }
-            );
+            // uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, 
+            //     (snapshot) => {
+            //         console.log("Upload Progress: " + ((snapshot.bytesTransferrd / snapshot.totalBytes) * 100) + "%");
+            //     },
+            //     (error) => {console.log("Error:" + error)},
+            //     () => {
+            //         console.log("Upload Successfull!");
+            //     }
+            // );
     }
 
     /**
@@ -183,6 +187,7 @@ export class Achievement {
             "name"  : this.name,
             "source" : this.source,
             "date" : this.date,
+            "imageURL" : this.imageURL,
             "url" : this.url,
 
         }
