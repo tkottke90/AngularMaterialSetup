@@ -31,8 +31,8 @@ export class SkillDisplay {
      */
     getSkillChildren(skillName: string): Skill[]{
         let skills: Skill[] = []
-        
-        //console.log(skillName);
+
+        console.log(skillName);
 
         this.AM.skillList.forEach(skill => {
             //console.log(skill.name  + " - " + skill.domain.toString());

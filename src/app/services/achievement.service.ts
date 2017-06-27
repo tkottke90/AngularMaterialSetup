@@ -82,13 +82,21 @@ export class AchManager {
 
         skills.$ref.once('value').then((skill) => {
             skill.forEach((childskill) =>{
-                var key = childskill.key;
                 var data = childskill.val();
 
-                console.log(key + " : " + data);
+                let skillDomIndex = this.skillCategories.findIndex((skillCat) => skillCat.name == data.domain );
+                let skillDom = this.skillCategories[skillDomIndex];
+
+                this.skillList.push(new Skill(
+                    data.name,
+                    data.level,
+                    new Date(data.yearStarted,1),
+                    skillDom
+                ));
             })
         });
 
+        console.log(this.skillList);
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {
         //     achieve.push(a.export());
