@@ -1,0 +1,104 @@
+6/27
+** Changes **
+	- Worked to resolve issue with skill selection when clicking on the Project Card 
+	- Removed AchManager from pro-dev.component.ts as it was creating a duplicate achievement manager service
+
+** To-Do **
+	[ ] Work on uploading data of each object type from achievement.service.ts to firebase
+		- [X] Skills
+		- [ ] Achievements
+		- [ ] Projects
+	[ ] Work on building project displays (preview and detailed)
+	[Future] Build entry point for creating content for user
+
+** Errors/Issues **
+	1) Error after clicking on project card and skills display attempted to update skills: 
+	
+		a) Error Discovery
+			ProjectCardComponent.html:1 ERROR TypeError: Cannot read property 'toString' of undefined
+			at http://localhost:4200/main.bundle.js:1361:29
+			at Array.forEach (native)
+			at SkillDisplay.webpackJsonp.46.SkillDisplay.getSkillChildren (http://localhost:4200/main.bundle.js:1359:27)
+			at SkillDisplay.webpackJsonp.46.SkillDisplay.updateSkill (http://localhost:4200/main.bundle.js:1350:25)
+			at ProjectCardComponent.webpackJsonp.175.ProjectCardComponent.cardClick (http://localhost:4200/main.bundle.js:481:17)
+			at Object.eval [as handleEvent] (ng:///AppModule/ProjectCardComponent.ngfactory.js:25:24)
+			at handleEvent (http://localhost:4200/vendor.bundle.js:12272:138)
+			at callWithDebugContext (http://localhost:4200/vendor.bundle.js:13564:42)
+			at Object.debugHandleEvent [as handleEvent] (http://localhost:4200/vendor.bundle.js:13152:12)
+			at dispatchEvent (http://localhost:4200/vendor.bundle.js:9172:21)
+			ProjectCardComponent.html:1 
+			
+			ERROR CONTEXT 
+			DebugContext_ {view: Object, nodeIndex: 0, nodeDef: Object, elDef: Object, elView: Object}
+			View_ProjectCardComponent_0	@	ProjectCardComponent.html:1
+			proxyClass	@	compiler.es5.js:14091
+			DebugContext_.logError	@	core.es5.js:13146
+			ErrorHandler.handleError	@	core.es5.js:1149
+			(anonymous)	@	core.es5.js:9410
+			(anonymous)	@	platform-browser.es5.js:2687
+			ZoneDelegate.invokeTask	@	zone.js:424
+			onInvokeTask	@	core.es5.js:4140
+			ZoneDelegate.invokeTask	@	zone.js:423
+			Zone.runTask	@	zone.js:191
+			ZoneTask.invoke	@	zone.js:486
+			
+		b) [Resolved 6/27/2017 - 13:00] Worked towards resolving the issue by adding a try/catch block around 
+			- Block allowed for the following to show up in the console: 
+			
+			0) skillList Query: 													skill-display.service.ts:45    
+				Skill Name: Theater 												skill-display.service.ts:55 
+			Catch: TypeError: Cannot read property 'toString' of undefined			skill-container.component.ts:30
+			
+			-  Wrote skillList to console and found that the root skills (i.e. Theater had a domain of "undefined"):
+			
+				0: 
+					Skill domain: undefined
+					experienceYear: Thu Feb 01 2007 00:00:00 GMT-0600 (Central Standard Time)
+					level: "Intermediate"
+					name: "Theater"
+			- This caused an error when the program attempted to grab the domain of the Skills and run: undefined.toString()
+
+###########################################
+
+6/26
+** Changes **
+	- Uploaded Skills to DB
+		- Caused error sending card information to skill-display to update Professional Development skills based on projects selected
+
+** To-Do **
+	[ ] Work on uploading data of each object type from achievement.service.ts to firebase
+		- [ ] Skills
+		- [ ] Achievements
+		- [ ] Projects
+	[ ] Work on building project displays (preview and detailed)
+	[Future] Build entry point for creating content for user
+
+** Errors/Issues **
+	1) Error after updating skills: 
+	
+	ProjectCardComponent.html:1 ERROR TypeError: Cannot read property 'toString' of undefined
+    at http://localhost:4200/main.bundle.js:1361:29
+    at Array.forEach (native)
+    at SkillDisplay.webpackJsonp.46.SkillDisplay.getSkillChildren (http://localhost:4200/main.bundle.js:1359:27)
+    at SkillDisplay.webpackJsonp.46.SkillDisplay.updateSkill (http://localhost:4200/main.bundle.js:1350:25)
+    at ProjectCardComponent.webpackJsonp.175.ProjectCardComponent.cardClick (http://localhost:4200/main.bundle.js:481:17)
+    at Object.eval [as handleEvent] (ng:///AppModule/ProjectCardComponent.ngfactory.js:25:24)
+    at handleEvent (http://localhost:4200/vendor.bundle.js:12272:138)
+    at callWithDebugContext (http://localhost:4200/vendor.bundle.js:13564:42)
+    at Object.debugHandleEvent [as handleEvent] (http://localhost:4200/vendor.bundle.js:13152:12)
+    at dispatchEvent (http://localhost:4200/vendor.bundle.js:9172:21)
+	ProjectCardComponent.html:1 
+	
+	ERROR CONTEXT 
+	DebugContext_ {view: Object, nodeIndex: 0, nodeDef: Object, elDef: Object, elView: Object}
+	View_ProjectCardComponent_0	@	ProjectCardComponent.html:1
+	proxyClass	@	compiler.es5.js:14091
+	DebugContext_.logError	@	core.es5.js:13146
+	ErrorHandler.handleError	@	core.es5.js:1149
+	(anonymous)	@	core.es5.js:9410
+	(anonymous)	@	platform-browser.es5.js:2687
+	ZoneDelegate.invokeTask	@	zone.js:424
+	onInvokeTask	@	core.es5.js:4140
+	ZoneDelegate.invokeTask	@	zone.js:423
+	Zone.runTask	@	zone.js:191
+	ZoneTask.invoke	@	zone.js:486

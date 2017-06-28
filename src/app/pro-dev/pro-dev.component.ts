@@ -4,8 +4,7 @@ import { AchManager, Achievement } from '../services/achievement.service';
 @Component({
   selector: 'app-pro-dev',
   templateUrl: './pro-dev.component.html',
-  styleUrls: ['./pro-dev.component.css'],
-  providers: [ AchManager ]
+  styleUrls: ['./pro-dev.component.css']
 })
 export class ProDevComponent implements OnInit {
 

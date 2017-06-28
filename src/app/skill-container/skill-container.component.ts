@@ -23,9 +23,11 @@ export class SkillContainerComponent implements OnInit {
     console.log("userStart: " + this.AM.user.userStart);
     this.firstYear = this.AM.user.userStart.getFullYear();
     this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
+    console.log("SkillCat: " + this.skillCat);  
   }
 
   ngOnInit() {
+    this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
     this.SD.childList.subscribe({
       next: (s) => { this.skillCat = s; console.log(s) },
        error: (e) => 

@@ -41,24 +41,24 @@ export class AchManager {
 
     // List of Skills
     skillList = [
-        new Skill("Theater", "Intermediate", new Date(2007,1), this.rootSkill),
-        new Skill("Web Development", "Novice", new Date(2016,1), this.rootSkill),
-        new Skill("Drafting", "Intermediate", new Date(2008,1), this.rootSkill),
-        new Skill("Zymology/Oenology","Intermediate",new Date(2015,3),this.rootSkill),
-        new Skill("Sound Design/Engineering", "Intermediate",new Date(2007,1), this.skillCategories[0]),
-        new Skill("Set Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
-        new Skill("Light Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
-        new Skill("HTML", "Novice", new Date(2016,1), this.skillCategories[1]),
-        new Skill("CSS", "Novice", new Date(2016,1),this.skillCategories[1]),
-        new Skill("Typescript", "Novice", new Date(2016,1),this.skillCategories[1]),
-        new Skill("Angular2", "Novice", new Date(2016,1),this.skillCategories[1]),
-        new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2]),
-        new Skill("Hand Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
-        new Skill("CAD Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
-        new Skill("Beer Brewing", "Intermediate", new Date(2015,1),this.skillCategories[4]),
-        new Skill("Wine Making", "Intermediate", new Date(2016,1),this.skillCategories[4]),
-        new Skill("Vineyard Care", "Intermediate", new Date(2012,1),this.skillCategories[4]),
-        new Skill("Yeast Propigation", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+        // new Skill("Theater", "Intermediate", new Date(2007,1), this.rootSkill),
+        // new Skill("Web Development", "Novice", new Date(2016,1), this.rootSkill),
+        // new Skill("Drafting", "Intermediate", new Date(2008,1), this.rootSkill),
+        // new Skill("Zymology/Oenology","Intermediate",new Date(2015,3),this.rootSkill),
+        // new Skill("Sound Design/Engineering", "Intermediate",new Date(2007,1), this.skillCategories[0]),
+        // new Skill("Set Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
+        // new Skill("Light Design/Engineering","Novice",new Date(2010,1), this.skillCategories[0]),
+        // new Skill("HTML", "Novice", new Date(2016,1), this.skillCategories[1]),
+        // new Skill("CSS", "Novice", new Date(2016,1),this.skillCategories[1]),
+        // new Skill("Typescript", "Novice", new Date(2016,1),this.skillCategories[1]),
+        // new Skill("Angular2", "Novice", new Date(2016,1),this.skillCategories[1]),
+        // new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2]),
+        // new Skill("Hand Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
+        // new Skill("CAD Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
+        // new Skill("Beer Brewing", "Intermediate", new Date(2015,1),this.skillCategories[4]),
+        // new Skill("Wine Making", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+        // new Skill("Vineyard Care", "Intermediate", new Date(2012,1),this.skillCategories[4]),
+        // new Skill("Yeast Propigation", "Intermediate", new Date(2016,1),this.skillCategories[4]),
     ];
 
     // List of Projects
@@ -85,18 +85,18 @@ export class AchManager {
                 var data = childskill.val();
 
                 let skillDomIndex = this.skillCategories.findIndex((skillCat) => skillCat.name == data.domain );
-                let skillDom = this.skillCategories[skillDomIndex];
+                let skillDom = skillDomIndex >= 0 ? this.skillCategories[skillDomIndex] : this.rootSkill;
 
                 this.skillList.push(new Skill(
                     data.name,
                     data.level,
-                    new Date(data.yearStarted,1),
+                    new Date(data.startYear,1),
                     skillDom
                 ));
             })
         });
 
-        console.log(this.skillList);
+        //console.log(this.skillList);
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {
         //     achieve.push(a.export());
