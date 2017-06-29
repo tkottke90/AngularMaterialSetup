@@ -7,7 +7,6 @@
     display: block;
 
     overflow: hidden;
-    cursor: pointer;
     transition: 2s;
 }
 
@@ -51,6 +50,7 @@ p#name {
 
 #bar.isHoverTarget {
     border: 1px solid #000;
+    cursor: pointer;
 }
 
 #bar.destroy {

@@ -3,6 +3,7 @@ import { FirebaseApp } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { UsageLog } from './site-log.service';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import * as firebase from 'firebase';
 
 /**
@@ -16,15 +17,20 @@ export class AchManager {
     rootDirectory: FirebaseListObservable<any[]>;
     rootSkill = new Skill("_root", "N/A", new Date (2007, 1), null)
 
+// Database Status
+    isSkillImport = new BehaviorSubject<boolean>(false);
+    isProjectImport = new BehaviorSubject<boolean>(false);
+    isAchieveImport = new BehaviorSubject<boolean>(false);
+
 // User Data
     user = new User("tdkottke", new Date(2007,1));
     
 // Lists
     // List of Achievements
     achList = [
-        new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FDS%20Certificate.JPG?alt=media&token=3ed05c69-91e9-4989-aab4-7db923db5f2b","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
-        new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngularJS2%20Certificate.JPG?alt=media&token=7bfaea74-a287-4b83-8409-3d752a03fbb9","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
-        new Achievement("Angular 2 Essential Training", "Lynda.com", new Date(2017,5),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngular2%20Essential%20Certificate.JPG?alt=media&token=dc08aa13-faea-4942-b9a8-0daea12799d7","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html")
+        // new Achievement("Programing Foundations: Data Structures","Lynda.com",new Date(2017,1), "https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FDS%20Certificate.JPG?alt=media&token=3ed05c69-91e9-4989-aab4-7db923db5f2b","https://www.lynda.com/ViewCertificate/A13100FB68264EBB8EEF8C076AB3B2FE?utm_source=directlink&utm_medium=sharing&utm_campaign=certificate"),
+        // new Achievement("Learning AngularJS 2", "Lynda.com",new Date(2017,4),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngularJS2%20Certificate.JPG?alt=media&token=7bfaea74-a287-4b83-8409-3d752a03fbb9","https://www.lynda.com/Angular-tutorials/Learning-AngularJS-2/572160-2.html"),
+        // new Achievement("Angular 2 Essential Training", "Lynda.com", new Date(2017,5),"https://firebasestorage.googleapis.com/v0/b/my-test-project-5984d.appspot.com/o/Resume%2FAngular2%20Essential%20Certificate.JPG?alt=media&token=dc08aa13-faea-4942-b9a8-0daea12799d7","https://www.lynda.com/AngularJS-tutorials/Angular-2-Essential-Training/540347-2.html")
     ]
 
     // List of Recent Achievemets - Populated by getRecent()
@@ -36,7 +42,7 @@ export class AchManager {
         new Skill ("Web Development", "Novice", new Date(2016,1), this.rootSkill),
         new Skill ("Software Engineering", "Novice", new Date(2010,1), this.rootSkill),
         new Skill ("Drafting", "Intermediate", new Date(2008,1), this.rootSkill),
-        new Skill ("Zymology","Intermediate",new Date(),this.rootSkill)
+        new Skill ("Zymology/Oenology","Intermediate",new Date(2015,3),this.rootSkill)
     ];
 
     // List of Skills
@@ -72,7 +78,7 @@ export class AchManager {
 
 // Methods
 
-    constructor(private db: AngularFireDatabase, private UL: UsageLog, @Inject(FirebaseApp) FA: any){
+    constructor(private db: AngularFireDatabase, private UL: UsageLog){
         this.rootDirectory = db.list('/resume');
         let achieve = db.list('/resume/achievements');
         let skills = db.list('/resume/skills', {preserveSnapshot : true});
@@ -82,7 +88,7 @@ export class AchManager {
 
         skills.$ref.once('value').then((skill) => {
             skill.forEach((childskill) =>{
-                var data = childskill.val();
+                let data = childskill.val();
 
                 let skillDomIndex = this.skillCategories.findIndex((skillCat) => skillCat.name == data.domain );
                 let skillDom = skillDomIndex >= 0 ? this.skillCategories[skillDomIndex] : this.rootSkill;
@@ -93,9 +99,25 @@ export class AchManager {
                     new Date(data.startYear,1),
                     skillDom
                 ));
-            })
-        });
 
+        
+            })
+        }).then( () => { /*console.log("AchManager - Skills Imported");*/ this.isSkillImport.next(true); } );
+
+
+        achieve.$ref.once('value').then((achievement) => {
+            achievement.forEach((childAchive) => {
+                let data = childAchive.val();
+
+                this.achList.push(new Achievement(
+                    data.name,
+                    data.source,
+                    new Date(data.date.year, data.date.month,data.date.day),
+                    data.imageURL,
+                    data.url
+                ));
+            });
+        }).then(() => { this.isAchieveImport.next(true); console.log(this.achList); });
         //console.log(this.skillList);
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {

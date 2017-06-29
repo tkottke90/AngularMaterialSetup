@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy , Input, HostListener } from '@angular/core';
 import { Skill, AchManager } from '../services/achievement.service';
+import { SkillDisplay } from '../services/skill-display.service';
 
 @Component({
   selector: 'app-skill',
@@ -19,6 +20,10 @@ export class SkillComponent implements OnInit {
     this.isHoverTarget = false;
   }
 
+  @HostListener('click') ClickEvent(){
+    if(this.isCategory){ this.SD.updateSkill(this.skill); }
+  }
+
   // Component Variables
   isCategory: boolean;
   isHoverTarget: boolean = false;
@@ -27,7 +32,7 @@ export class SkillComponent implements OnInit {
   time: string = "";
 
   // Constructor /  onInit
-  constructor(private AM : AchManager) { }
+  constructor(private AM : AchManager, private SD: SkillDisplay) { }
 
   ngOnInit() {
     this.setProgress();

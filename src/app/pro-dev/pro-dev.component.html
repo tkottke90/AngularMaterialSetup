@@ -1,7 +1,7 @@
 <h2>Professional Development</h2>
 <div id="recents">
   <!-- Card Scroller -->
-    <app-pro-card [data]="currentAchievement"></app-pro-card>
+    <app-pro-card [data]="currentAchievement" *ngIf="achDisplay"></app-pro-card>
   <!-- Mastery Percentages -->
     <app-skill-container></app-skill-container>
 </div>

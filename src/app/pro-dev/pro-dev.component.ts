@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AchManager, Achievement } from '../services/achievement.service';
 
 @Component({
@@ -6,19 +6,20 @@ import { AchManager, Achievement } from '../services/achievement.service';
   templateUrl: './pro-dev.component.html',
   styleUrls: ['./pro-dev.component.css']
 })
-export class ProDevComponent implements OnInit {
+export class ProDevComponent {
 
   currentAchievement: Achievement;
+  achDisplay: boolean = false;
   achNav: number = 0;
 
-  constructor(private AM: AchManager) { }
-
-  ngOnInit() {
-    this.AM.getRecent();
-    
-    this.currentAchievement = this.AM.recList.length > 0 ? this.AM.recList[this.achNav] : undefined;
-    
-
+  constructor(private AM: AchManager) {
+    this.AM.isAchieveImport.subscribe({
+      next: (a) => {
+        this.AM.getRecent();
+        this.achDisplay = a;
+        if(a){ this.currentAchievement = this.AM.recList.length > 0 ? this.AM.recList[this.achNav] : undefined; }
+      }
+    });
   }
 
 }

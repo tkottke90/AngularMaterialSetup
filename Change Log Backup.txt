@@ -1,3 +1,36 @@
+6/28
+** Changes **
+	- Worked on/Resolved Initial Skill Display Issue
+		- Removed Troubleshooting logging
+	- Decreased details-container.component.ts animation time from 1.5s to 1.25s
+	- Removed "removeDisplay" boolean from details-container.component.ts
+	- Created achievement getter in achievement.service.ts
+	- Updated pro-dev.component.ts to wait for the achievement to be populated before showing information
+	- Updated project-card.component.ts/html - Had HostListener and HTML click events, consolidated to one location.
+	- Added click functionality to skill categories in skill.component.ts
+		- Allows user to drill down into skill
+
+** To-Do **
+	[ ] Work on uploading data of each object type from achievement.service.ts to firebase
+		- [X] Skills
+		- [X] Achievements
+		- [ ] Projects
+	[ ] Work on building project displays (preview and detailed)
+	[Future] Build entry point for creating content for user
+	[ ] - 
+	
+** Errors/Issues **
+	1) [Resolved] Skill Display does not show root skills levels on page load.
+		- Steps to Check
+			1) Ran "console.log(this.AM.skillList)" => Returned array of 18 skill objects from list
+			2) Ran "console.log(this.AM.skillList.length)" => Returned 0
+			3) Clicked on Project tile and updateSkill ran, saw console logs as expected and correct length reported.
+		- Resoloution: 
+			- Constructors were working at the same time.  Determined issue by adding a console.log to a then statement after the skills import completed
+			- Fixed by adding a boolean BehaviorSubject that skill-display.service.ts can listen for before it querys the list
+			
+##########################################
+
 6/27
 ** Changes **
 	- Worked to resolve issue with skill selection when clicking on the Project Card 
@@ -5,7 +38,7 @@
 
 ** To-Do **
 	[ ] Work on uploading data of each object type from achievement.service.ts to firebase
-		- [X] Skills
+		- [ ] Skills
 		- [ ] Achievements
 		- [ ] Projects
 	[ ] Work on building project displays (preview and detailed)
@@ -57,6 +90,12 @@
 					level: "Intermediate"
 					name: "Theater"
 			- This caused an error when the program attempted to grab the domain of the Skills and run: undefined.toString()
+	
+	2) Skill Display does not show root skills levels on page load.
+		- Steps to Check
+			1) Ran "console.log(this.AM.skillList)" => Returned array of 18 skill objects from list
+			2) Ran "console.log(this.AM.skillList.length)" => Returned 0
+			3) Clicked on Project tile and updateSkill ran, saw console logs as expected and correct length reported.
 
 ###########################################
 

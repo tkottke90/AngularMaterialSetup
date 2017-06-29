@@ -20,16 +20,16 @@ export class SkillContainerComponent implements OnInit {
   years: number[] = [];
 
   constructor(private AM: AchManager, private SD: SkillDisplay) { 
-    console.log("userStart: " + this.AM.user.userStart);
+    
     this.firstYear = this.AM.user.userStart.getFullYear();
-    this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
-    console.log("SkillCat: " + this.skillCat);  
+    //this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
+    //console.log("SkillCat: " + this.skillCat);  
   }
 
   ngOnInit() {
-    this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
+    //this.skillCat = this.SD.getSkillChildren(this.AM.rootSkill.toString());
     this.SD.childList.subscribe({
-      next: (s) => { this.skillCat = s; console.log(s) },
+      next: (s) => { this.skillCat = s; },
        error: (e) => 
         {
           console.error(e); 
@@ -44,7 +44,7 @@ export class SkillContainerComponent implements OnInit {
   } 
 
   ngOnChanges(changes){
-    console.log(changes);
+    console.log("Changes : " + changes);
   }
 
 }

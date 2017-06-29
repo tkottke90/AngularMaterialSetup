@@ -11,15 +11,22 @@ export class SkillDisplay {
     cSkillCategory: Skill = null;
     children: Skill[] = [];
 
+
+
     childList = new Subject<Skill[]>(); 
 
     constructor(private AM: AchManager){
-        this.cSkillCategory = AM.skillCategories[0];
-        console.log(this.AM.skillList);
-        console.log(this.AM.skillList.length);
-        let test: Skill[] = this.getSkillChildren(this.AM.rootSkill.toString());
-        console.log(test);
-        this.childList.next(test);
+        this.cSkillCategory = AM.rootSkill;
+        // let test: Skill[] = this.getSkillChildren(this.AM.rootSkill.toString());
+        // console.log(test);
+        // this.childList.next(test);
+
+        this.AM.isSkillImport.subscribe({
+            next: (n) => {
+                if(n){ this.updateSkill(this.AM.rootSkill) }
+                else { this.childList.next(new Array<Skill>()); this.cSkillCategory = null; }
+            }
+        });
     }
 
     ngOnInit(){
@@ -41,29 +48,15 @@ export class SkillDisplay {
 
         let testNum = this.AM.skillList.length;
         let testCount = 0;
-        console.log("Pre Try");
-        console.log("getSkillChildren - " + skillName 
-                    + "\r\n   SkillList Length: " + this.AM.skillList.length 
-                    + "\r\n   ");
-
-        try{
-            this.AM.skillList.forEach((skill) => {
-                console.log(testCount + ") skillList Query: ");
-                console.log("   Skill Name: " + skill.name);
-                console.log("   Skill Domain: " + skill.domain.toString());
-                let testBool = skill.domain.toString() == skillName; 
-                console.log("   Domain Match: " + testBool);
-                    if(testBool){
-                        skills.push(skill);
-                    }
-                testCount++;
-            });
-
-        }catch(e){
-            console.log("Catch Block");
-            console.error("Catch: " + e);
-        }
-        console.log("Post Try");
+        
+        this.AM.skillList.forEach((skill) => {
+            let testBool = skill.domain.toString() == skillName; 
+                if(testBool){
+                    skills.push(skill);
+                }
+            testCount++;
+        });
+        
         return skills = skills.sort((s1, s2) => s1.experienceYear.getFullYear() - s2.experienceYear.getFullYear());
     }
 }

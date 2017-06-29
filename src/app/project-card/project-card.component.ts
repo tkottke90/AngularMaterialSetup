@@ -37,9 +37,6 @@ export class ProjectCardComponent implements OnInit {
   }
 
   cardClick(){
-    //console.log(this.card.title + " was clicked");
-    //console.log("Skill Link: " + this.card.skillLink);
-    console.log(this.card);
     this.SD.updateSkill(this.card.skillLink);
   }
 

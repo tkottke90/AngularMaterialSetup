@@ -8,8 +8,6 @@ import { DisplayInfo } from '../services/display-info.service';
 })
 export class DetailContainer {
 
-    removeDisplay: boolean = false;
-
     constructor(private DI: DisplayInfo){}
 
     closeDisplay(){
