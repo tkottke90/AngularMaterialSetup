@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DisplayInfo } from '../services/display-info.service';
 
 @Component({
@@ -8,7 +8,19 @@ import { DisplayInfo } from '../services/display-info.service';
 })
 export class DetailContainer {
 
-    constructor(private DI: DisplayInfo){}
+    projectDisplay: boolean = true;
+    achieveDisplay: boolean = true;
+
+    constructor(private DI: DisplayInfo){ }
+
+    ngOnInit(){
+        this.DI.activeDisplayWindow.subscribe({
+            next: (b) => {
+                this.projectDisplay = this.DI.projectsActive;
+                this.achieveDisplay = !this.projectDisplay;
+            }
+        });
+    }
 
     closeDisplay(){
         this.DI.hideDisplay();

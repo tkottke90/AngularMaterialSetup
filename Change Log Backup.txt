@@ -1,3 +1,21 @@
+6/29
+** Changes **
+	- Worked on Skill Navigation in skill-container.component
+		- Added back button to allow user to navigate back to root skills
+		- Added up and down buttons to allow user to navigate through skills in domain
+		- Title now updates to show which skill section the user is looking at
+	-  
+
+** To-Do **
+	[ ] Work on building project displays (preview and detailed)
+		[ ] Work on uploading project data to firebase db
+	[Future] Build entry point for creating content for user
+	[X] Add navigation to skill-container.component to allow navigation to root skill
+	
+** Errors/Issues **
+
+############################################
+
 6/28
 ** Changes **
 	- Worked on/Resolved Initial Skill Display Issue
@@ -17,7 +35,6 @@
 		- [ ] Projects
 	[ ] Work on building project displays (preview and detailed)
 	[Future] Build entry point for creating content for user
-	[ ] - 
 	
 ** Errors/Issues **
 	1) [Resolved] Skill Display does not show root skills levels on page load.

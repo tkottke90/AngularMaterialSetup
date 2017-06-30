@@ -61,11 +61,11 @@ export class AchManager {
         // new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2]),
         // new Skill("Hand Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
         // new Skill("CAD Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
-        // new Skill("Beer Brewing", "Intermediate", new Date(2015,1),this.skillCategories[4]),
-        // new Skill("Wine Making", "Intermediate", new Date(2016,1),this.skillCategories[4]),
-        // new Skill("Vineyard Care", "Intermediate", new Date(2012,1),this.skillCategories[4]),
-        // new Skill("Yeast Propigation", "Intermediate", new Date(2016,1),this.skillCategories[4]),
-    ];
+        // new Skill("Beer Brewing1", "Intermediate", new Date(2015,1),this.skillCategories[4]),
+        // new Skill("Wine Making1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+        // new Skill("Vineyard Care1", "Intermediate", new Date(2012,1),this.skillCategories[4]),
+        // new Skill("Yeast Propigation1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+     ];
 
     // List of Projects
     // projects = [
@@ -117,7 +117,8 @@ export class AchManager {
                     data.url
                 ));
             });
-        }).then(() => { this.isAchieveImport.next(true); console.log(this.achList); });
+        }).then(() => { this.isAchieveImport.next(true); /*console.log(this.achList);*/ });
+        
         //console.log(this.skillList);
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {

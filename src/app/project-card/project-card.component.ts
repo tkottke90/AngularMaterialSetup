@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener} from '@angular/core';
 import { Cards } from '../projects/projects.component';
 import { SkillDisplay } from '../services/skill-display.service';
-import { DisplayInfo } from '../services/display-info.service';
+import { DisplayInfo, info } from '../services/display-info.service';
 
 @Component({
   selector: 'app-project-card',
@@ -21,14 +21,15 @@ export class ProjectCardComponent implements OnInit {
   }   
 
   @HostListener('click') SelectProjects() {
-      this.DI.showDisplay();
+      this.DI.showDisplay("projects");
+      this.cardClick();
   }
   isHoverTarget: boolean = false;
 
   title: string = "";
   imageURL: string = "";
 
-  constructor(private SD: SkillDisplay, private DI: DisplayInfo) { 
+  constructor(private SD: SkillDisplay, private DI: DisplayInfo, private _displayType: info) { 
   }
 
   ngOnInit() {

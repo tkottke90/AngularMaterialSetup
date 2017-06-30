@@ -1,16 +1,36 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Injectable, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+export enum info {
+    projects,
+    achivements
+}
 
 @Injectable()
 export class DisplayInfo{
+    
+    
 
-    displayStatus: boolean;
-    activeDisplayWindow: Subject<boolean> = new Subject();
+    activeDisplayWindow: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    projectsActive: boolean = false;
 
     constructor(){
         this.activeDisplayWindow.next(true);
     }
 
-    showDisplay(){ this.activeDisplayWindow.next(true); }
+    showDisplay( display: string ){ 
+
+        switch(info[display]){
+            case 1:
+                this.projectsActive = true;
+                break;
+            case 2:
+                this.projectsActive = false;
+                break;
+        }
+
+        this.activeDisplayWindow.next(true); 
+    
+    }
     hideDisplay(){ this.activeDisplayWindow.next(false); }
 }

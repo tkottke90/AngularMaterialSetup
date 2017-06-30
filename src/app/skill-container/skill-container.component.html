@@ -1,9 +1,30 @@
 <md-card>
   
-  <h2>Skills</h2>
-
+  <div id="skill-header">
+    <button
+      md-button
+      (click)="returnRoot()"
+      *ngIf="isRootSkill"
+    ><i class="mdi mdi-chevron-left mdi-24px" style="color: black;"></i></button>
+    <h2>{{title}}</h2>
+  </div>
+  
   <app-skill 
-    *ngFor="let skills of skillCat"
+    *ngFor="let skills of skillDisplay"
     [skill]="skills">
   </app-skill>
+
+  <div id="skill-nav">
+    <button md-button 
+      (click)="updateDisplay(1)"
+      *ngIf="hasMoreSkills"
+    ><i class="mdi mdi-chevron-down mdi-24px" style="color: black;"></i>
+    </button>
+    <button md-button
+      (click)="updateDisplay(0)"
+      *ngIf="hasMoreSkills"
+    ><i class="mdi mdi-chevron-up mdi-24px" style="color: black;"></i>
+    </button>
+  </div>
+
 </md-card>
