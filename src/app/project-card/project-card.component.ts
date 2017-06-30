@@ -29,7 +29,7 @@ export class ProjectCardComponent implements OnInit {
   title: string = "";
   imageURL: string = "";
 
-  constructor(private SD: SkillDisplay, private DI: DisplayInfo, private _displayType: info) { 
+  constructor(private SD: SkillDisplay, private DI: DisplayInfo) { 
   }
 
   ngOnInit() {

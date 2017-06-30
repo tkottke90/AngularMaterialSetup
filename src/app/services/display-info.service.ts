@@ -14,17 +14,16 @@ export class DisplayInfo{
     activeDisplayWindow: BehaviorSubject<boolean> = new BehaviorSubject(false);
     projectsActive: boolean = false;
 
-    constructor(){
-        this.activeDisplayWindow.next(true);
-    }
+    constructor(){ }
 
     showDisplay( display: string ){ 
 
-        switch(info[display]){
-            case 1:
+        let d = info[display];
+        switch(d){
+            case 0:
                 this.projectsActive = true;
                 break;
-            case 2:
+            case 1:
                 this.projectsActive = false;
                 break;
         }

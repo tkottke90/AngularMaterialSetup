@@ -68,13 +68,28 @@ export class AchManager {
      ];
 
     // List of Projects
-    // projects = [
-    //     new Project 
-    //     {
-    //         "Personal Portfolio",
-    //         "Created a personal portfolio to display my work"
-    //     }
-    // ]
+    projects = [
+        new Project(
+            this,
+            "Personal Portfolio",
+            "This is project I created to display my work in a digital format as well as explore web design using the Angular Framework and Firebase",
+            [
+                ["HTML", 7],
+                ["CSS", 8],
+                ["Typescript", 9],
+                ["Angular2", 10]
+            ],
+            {
+                "git-repository" : "https://github.com/tkottke90/AngularMaterialSetup"
+            },
+            { },
+            {
+                "Concept" : "",
+                "Front Page" : "",
+                "Project View" : ""
+            }
+        )
+     ]
 
 // Methods
 
@@ -102,7 +117,11 @@ export class AchManager {
 
         
             })
-        }).then( () => { /*console.log("AchManager - Skills Imported");*/ this.isSkillImport.next(true); } );
+        }).then( () => { /*console.log("AchManager - Skills Imported");*/ this.isSkillImport.next(true); 
+            
+            console.log(this.projects[0].projectSkills);
+            this.projects[0].getSkills();
+        });
 
 
         achieve.$ref.once('value').then((achievement) => {
@@ -119,7 +138,6 @@ export class AchManager {
             });
         }).then(() => { this.isAchieveImport.next(true); /*console.log(this.achList);*/ });
         
-        //console.log(this.skillList);
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {
         //     achieve.push(a.export());
@@ -281,15 +299,33 @@ export class Project {
 
     sDescription: string; // Short Description for preview
 
-    links: string[] = [];
-    downloads: string[] = [];
+    links;
+    downloads;
+    images;
 
-    projectSkill: Skill;
+    projectSkills: any;
+    skills: Skill[] = [];
 
-    constructor(name: string, desciption: string, skill: Skill){
+    constructor(private _AM: AchManager, name: string, desciption: string, skill: any, links, download, images){
         this.name = name;
         this.description = desciption;
-        this.projectSkill = skill;
+        this.sDescription = desciption;
+        this.links = links;
+        this.downloads = download;
+        this.images = images;
+        this.projectSkills = skill;        
+    }
+
+    getSkills(){
+        this.projectSkills.forEach((element) => {
+            let name = element[0];
+            let data = element[1];
+
+            console.log(name + " : " + this._AM.skillList[data])
+            this.skills.push(this._AM.skillList[data]);
+        });
+
+        console.log(this.skills);
     }
 
     export(){
@@ -297,7 +333,9 @@ export class Project {
             "name" : this.name,
             "description" : this.description,
             "links" :  this.links,
-            "downloads" : this.downloads
+            "downloads" : this.downloads,
+            "skill": this.projectSkills.name,
+
         }
     }
 }

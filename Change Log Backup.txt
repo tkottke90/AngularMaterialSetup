@@ -1,10 +1,32 @@
+6/30
+** Changes **
+	- Worked on animating skills with Angular2 Animations
+		- https://angular.io/guide/animations#example-entering-and-leaving
+	- Added Method to Achivement button in pro-dev.component.html that pulls up the details-container to view achievements 
+	- Worked on Project Object Data structure (achievement.service.ts)
+	
+** To-Do **
+	[ ] Work on building project displays (preview and detailed)
+		[ ] Work on Project data structure and import/export
+		[ ] Work on uploading project data to firebase db
+	[ ] Work on Animating Skills using Angular2 Animations
+	[Future] Build entry point for creating content for user
+	[ ] Work on Into-Component
+	[ ] Work on Education Component
+	[ ] Work on Resume Component
+	[ ] Work on Contact Component
+		[ ] Research sending email from form
+
+** Errors/Issues **
+
+##################################################################
+
 6/29
 ** Changes **
 	- Worked on Skill Navigation in skill-container.component
 		- Added back button to allow user to navigate back to root skills
 		- Added up and down buttons to allow user to navigate through skills in domain
 		- Title now updates to show which skill section the user is looking at
-	-  
 
 ** To-Do **
 	[ ] Work on building project displays (preview and detailed)

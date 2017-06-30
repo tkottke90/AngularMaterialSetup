@@ -41,7 +41,6 @@ export class SkillContainerComponent implements OnInit {
         this.topSkill = 0;
         if(this.skillCat.length < 5){
           this.skillDisplay = this.skillCat;
-          console.log(this.hasMoreSkills);
           this.hasMoreSkills = false;
         }
         else {

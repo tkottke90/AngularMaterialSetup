@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AchManager, Achievement } from '../services/achievement.service';
+import { DisplayInfo } from '../services/display-info.service';
 
 @Component({
   selector: 'app-pro-dev',
@@ -12,7 +13,7 @@ export class ProDevComponent {
   achDisplay: boolean = false;
   achNav: number = 0;
 
-  constructor(private AM: AchManager) {
+  constructor(private AM: AchManager, private DI: DisplayInfo) {
     this.AM.isAchieveImport.subscribe({
       next: (a) => {
         this.AM.getRecent();
@@ -21,5 +22,7 @@ export class ProDevComponent {
       }
     });
   }
+
+  viewAchive(){ this.DI.showDisplay("achivements"); }
 
 }
