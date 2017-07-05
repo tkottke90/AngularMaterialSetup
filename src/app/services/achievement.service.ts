@@ -335,13 +335,23 @@ export class Project {
      * 
      * Designed to be used with displaying projects associated with specific skills
      * @param s Array of Skill Objects
+     * @returns True if any of the parameters 
      */
     usesSkills(s?: Skill[]): boolean {
+        let uSkill: boolean = false;
+        
         s.forEach((sk) => {
-            if(this.skills.includes(sk)){ return true; }
+            
+            this.skills.forEach((askill) => {
+                console.log(askill.name + " == " + sk.name + " => " + (askill == sk));
+                if(askill == sk){ uSkill = true; }
+            });
+
+
+            // if(this.skills.includes(sk)){ return true; } <- Not Usable with Array parameter, as the program is attempting to match the whole array object, rather than each object in the array
         });
 
-        return false;
+        return uSkill;
     }
 
     export(){
