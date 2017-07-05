@@ -343,7 +343,6 @@ export class Project {
         s.forEach((sk) => {
             
             this.skills.forEach((askill) => {
-                console.log(askill.name + " == " + sk.name + " => " + (askill == sk));
                 if(askill == sk){ uSkill = true; }
             });
 

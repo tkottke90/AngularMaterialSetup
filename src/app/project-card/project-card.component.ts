@@ -21,7 +21,7 @@ export class ProjectCardComponent implements OnInit {
   }   
 
   @HostListener('click') SelectProjects() {
-      this.DI.showDisplay("projects");
+      this.DI.showDisplay("projects", this.card.skillLink);
       this.cardClick();
   }
   isHoverTarget: boolean = false;

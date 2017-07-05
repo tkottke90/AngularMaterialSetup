@@ -1,6 +1,5 @@
 <h3>Projects: {{subject}}</h3>
-<project-details></project-details>
-<project-details></project-details>
-<project-details></project-details>
-<project-details></project-details>
-<project-details></project-details>
+<project-details
+    *ngFor="let project of projects"
+    [project]="project"
+></project-details>

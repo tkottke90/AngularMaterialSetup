@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SkillDisplay } from '../services/skill-display.service';
-import { Skill } from '../services/achievement.service';
+import { AchManager, Project } from '../services/achievement.service';
+import { DisplayInfo, displayObject } from '../services/display-info.service';
+
 
 @Component({
     selector: 'app-projectdisplay',
@@ -12,10 +14,14 @@ export class ProjectDisplay {
 
     subject: string = "";
 
-    constructor(private SD: SkillDisplay){}
+    projects: displayObject[] = [];
+
+    constructor(private _DI: DisplayInfo, private _AM: AchManager){}
 
     ngOnInit(){
-
+        this._DI.displayData.subscribe({
+            next: (n) => { this.projects = n; console.log(this.projects); }
+        });
     }
 
 }

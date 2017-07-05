@@ -1,7 +1,9 @@
 import { Injectable, Input } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AchManager, Project, Achievement, Skill } from './achievement.service';
+import { UsageLog } from './site-log.service';
 
 export enum info {
     projects,
@@ -17,14 +19,14 @@ export enum info {
 @Injectable()
 export class DisplayInfo{
     
-    displayData: displayObject[] = [];
+    displayData: BehaviorSubject<displayObject[]> = new BehaviorSubject<displayObject[]>([]);
 
 
 
     activeDisplayWindow: BehaviorSubject<boolean> = new BehaviorSubject(false);
     projectsActive: boolean = false;
 
-    constructor(private AM: AchManager){ }
+    constructor(private AM: AchManager, private _log: UsageLog){ }
 
     showDisplay( display: string, skill?: Skill ){ 
 
@@ -32,6 +34,7 @@ export class DisplayInfo{
         switch(d){
             case 0:
                 this.projectsActive = true;
+                this.getSkillProjects(skill);
                 break;
             case 1:
                 this.projectsActive = false;
@@ -44,20 +47,21 @@ export class DisplayInfo{
     hideDisplay(){ this.activeDisplayWindow.next(false); }
 
     getSkillProjects(skill: Skill){
-        this.displayData = [];
+        let newProjects: displayObject[] = [];
 
         if(skill.domain.toString() == this.AM.rootSkill.toString()){
             let childSkills: Skill[] = [];
             childSkills.push(skill);
 
             this.AM.skillList.forEach((cskill) => {
+
                 if(cskill.domain.toString() == skill.toString()){
                     childSkills.push(cskill);
                 }
             });
 
             this.AM.projects.forEach((project) => {
-                if(project.usesSkills(childSkills)) { this.displayData.push(new displayObject(project)); }
+                if(project.usesSkills(childSkills)) { newProjects.push(new displayObject(project)); }
             });
 
         }
@@ -66,24 +70,26 @@ export class DisplayInfo{
             let skillMut = [ skill ];
 
             this.AM.projects.forEach((project) => {
-                if(project.usesSkills(skillMut)) { this.displayData.push(new displayObject(project)); }
+                if(project.usesSkills(skillMut)) { newProjects.push(new displayObject(project)); }
             });
 
         }
-    }
+        try{
+            console.log(newProjects);
+            this.displayData.next(newProjects);
+        }
+        catch(e){ this._log.logEvent }
+    }   
 }
 
 
-class displayObject {
+export class displayObject {
     project: Project;
-    achive: Achievement;
 
     isSelected: boolean;
 
-    constructor(pro?: Project, ach?: Achievement){
+    constructor(pro: Project){
         this.project = pro;
-        this.achive = ach;
-
         this.isSelected = false;
     }
 }

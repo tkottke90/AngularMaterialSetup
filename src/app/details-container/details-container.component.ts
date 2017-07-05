@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DisplayInfo } from '../services/display-info.service';
+import { DisplayInfo, displayObject } from '../services/display-info.service';
 
 @Component({
     selector: 'app-details',
@@ -10,6 +10,8 @@ export class DetailContainer {
 
     projectDisplay: boolean = true;
     achieveDisplay: boolean = true;
+
+    projectList: displayObject[];
 
     constructor(private DI: DisplayInfo){ }
 
