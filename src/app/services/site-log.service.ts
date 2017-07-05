@@ -4,13 +4,13 @@ import { AngularFireDatabase ,  FirebaseListObservable } from 'angularfire2/data
 @Injectable()
 export class UsageLog {
 
-    logRoot: FirebaseListObservable<any[]>;
+    private logRoot: FirebaseListObservable<any[]>;
 
     constructor(private db : AngularFireDatabase){
         this.logRoot = db.list('/resume/log');
     }
 
-    getTimestamp() : string {
+    private getTimestamp() : string {
         let now = new Date();        
         let timestamp = "" + now.getFullYear() 
                 + now.getMonth()
