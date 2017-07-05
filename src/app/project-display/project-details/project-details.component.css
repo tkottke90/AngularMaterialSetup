@@ -6,3 +6,32 @@
 :host.expanded {
     
 }
+
+md-card {
+    height: 15%;
+
+    padding: 1%;
+     margin-bottom: 1%;
+}
+
+/* Content */
+div#content {
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: 20% 1fr;
+}
+
+div#content img{
+    height: 100%;
+    width: 100%;
+
+    grid-column: 1;
+}
+
+div#text{
+    padding: 2%;
+    grid-column: 2;
+}
+

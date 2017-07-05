@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 import { Skill, AchManager, User } from '../services/achievement.service';
 import { SkillDisplay } from '../services/skill-display.service';
 import { Subject } from 'rxjs/Subject';
@@ -6,7 +7,15 @@ import { Subject } from 'rxjs/Subject';
 @Component({
   selector: 'app-skill-container',
   templateUrl: './skill-container.component.html',
-  styleUrls: ['./skill-container.component.css']
+  styleUrls: ['./skill-container.component.css'],
+  animations: [
+    trigger('FadeInOut',[
+      transition('void => *',[
+        style({ opacity: 0 }),
+        animate('0.5s')
+      ])
+    ])
+  ]
 })
 export class SkillContainerComponent implements OnInit {
 

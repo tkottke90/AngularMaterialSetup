@@ -11,7 +11,8 @@
   
   <app-skill 
     *ngFor="let skills of skillDisplay"
-    [skill]="skills">
+    [skill]="skills"
+    [@FadeInOut]>
   </app-skill>
 
   <div id="skill-nav">

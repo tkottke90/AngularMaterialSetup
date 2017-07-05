@@ -61,10 +61,10 @@ export class AchManager {
         // new Skill("Java", "Intermediate", new Date(2010,1),this.skillCategories[2]),
         // new Skill("Hand Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
         // new Skill("CAD Drafting", "Intermediate", new Date(2010,1),this.skillCategories[3]),
-        // new Skill("Beer Brewing1", "Intermediate", new Date(2015,1),this.skillCategories[4]),
-        // new Skill("Wine Making1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
-        // new Skill("Vineyard Care1", "Intermediate", new Date(2012,1),this.skillCategories[4]),
-        // new Skill("Yeast Propigation1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+         // new Skill("Beer Brewing1", "Intermediate", new Date(2015,1),this.skillCategories[4]),
+         // new Skill("Wine Making1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
+         // new Skill("Vineyard Care1", "Intermediate", new Date(2012,1),this.skillCategories[4]),
+         // new Skill("Yeast Propigation1", "Intermediate", new Date(2016,1),this.skillCategories[4]),
      ];
 
     // List of Projects
@@ -72,6 +72,7 @@ export class AchManager {
         new Project(
             this,
             "Personal Portfolio",
+            "WIP",
             "This is project I created to display my work in a digital format as well as explore web design using the Angular Framework and Firebase",
             [
                 ["HTML", 7],
@@ -119,8 +120,9 @@ export class AchManager {
             })
         }).then( () => { /*console.log("AchManager - Skills Imported");*/ this.isSkillImport.next(true); 
             
-            console.log(this.projects[0].projectSkills);
-            this.projects[0].getSkills();
+            /* Future Dev - Pull Data from Database */
+
+            this.projects.forEach((project) => { project.getSkills(); });
         });
 
 
@@ -295,6 +297,7 @@ export class Project {
     
     name: string;
     description: string;
+    status: string; 
     thumbnail: string; // URL for project thumbnail
 
     sDescription: string; // Short Description for preview
@@ -306,14 +309,15 @@ export class Project {
     projectSkills: any;
     skills: Skill[] = [];
 
-    constructor(private _AM: AchManager, name: string, desciption: string, skill: any, links, download, images){
+    constructor(private _AM: AchManager, name: string, stat: string, desciption: string, skill: any, links, download, images){
         this.name = name;
+        this.status = stat;
         this.description = desciption;
         this.sDescription = desciption;
         this.links = links;
         this.downloads = download;
         this.images = images;
-        this.projectSkills = skill;        
+        this.projectSkills = skill;       
     }
 
     getSkills(){
@@ -321,16 +325,29 @@ export class Project {
             let name = element[0];
             let data = element[1];
 
-            console.log(name + " : " + this._AM.skillList[data])
             this.skills.push(this._AM.skillList[data]);
         });
 
-        console.log(this.skills);
+    }
+
+    /**
+     * Checks to see if project uses skills 
+     * 
+     * Designed to be used with displaying projects associated with specific skills
+     * @param s Array of Skill Objects
+     */
+    usesSkills(s?: Skill[]): boolean {
+        s.forEach((sk) => {
+            if(this.skills.includes(sk)){ return true; }
+        });
+
+        return false;
     }
 
     export(){
         let output = {
             "name" : this.name,
+            "status": this.status,
             "description" : this.description,
             "links" :  this.links,
             "downloads" : this.downloads,

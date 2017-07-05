@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { SkillDisplay } from '../services/skill-display.service';
 import { Skill } from '../services/achievement.service';
 
@@ -9,7 +10,7 @@ import { Skill } from '../services/achievement.service';
 })
 export class ProjectDisplay {
 
-    
+    subject: string = "";
 
     constructor(private SD: SkillDisplay){}
 
