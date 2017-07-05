@@ -10,7 +10,7 @@ import { Project } from '../../services/achievement.service';
     animations: [
         trigger('ExpandView', [
             state('preview', style({
-                height: "15%"
+                height: "20%"
             })),
             state('expanded', style({
                 height: "30%"
@@ -31,11 +31,14 @@ export class ProjectDetails {
 @HostListener('click') clickProject() {
     this.state = this.isSelected ? "expanded" : "preview";
     this.isSelected = !this.isSelected;
+
+    console.log(this.state);
+    console.log(this.isSelected);
 }
 
 @Input() project: Project;
 
-    isSelected: boolean = false;
+    isSelected: boolean = true;
     state = "preview";
 
     projectName: string = "Test Project";
