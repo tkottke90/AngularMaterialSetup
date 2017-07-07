@@ -6,34 +6,13 @@ import { Project } from '../../services/achievement.service';
 @Component({
     selector: 'project-details',
     templateUrl : './project-details.component.html',
-    styleUrls : ['./project-details.component.css'],
-    animations: [
-        trigger('ExpandView', [
-            state('preview', style({
-                height: "20%"
-            })),
-            state('expanded', style({
-                height: "30%"
-            })),
-            transition('preview => expanded',[
-                style({ transition: "height 1s" }),
-                animate('0.5s')
-            ]),
-            transition('expanded => preview', [
-                style({ transition: "height 1s" }),
-                animate('0.5s')
-            ])
-        ])
-    ]
+    styleUrls : ['./project-details.component.css']
 })
 export class ProjectDetails {
 
 @HostListener('click') clickProject() {
     this.state = this.isSelected ? "expanded" : "preview";
     this.isSelected = !this.isSelected;
-
-    console.log(this.state);
-    console.log(this.isSelected);
 }
 
 @Input() project: Project;

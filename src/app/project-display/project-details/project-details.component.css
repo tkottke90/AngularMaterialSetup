@@ -3,12 +3,10 @@
     box-sizing: border-box;
 }
 
-:host.expanded {
-    
-}
-
 md-card {
     height: 20%;
+
+    border-radius: 5%;
 
     padding: 1%;
      margin-bottom: 1%;
@@ -18,20 +16,24 @@ md-card {
 div#content {
     height: 100%;
 
+    position: relative;
+
     display: grid;
 
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 150px 1fr;
 }
 
 div#content img{
     height: inherit;
-    width: 100%;
+    min-width: 150px;
+    height: 150px;
+
+    position: absolute;
+    z-index: 500;
 
     grid-column: 1;
-}
 
-div#content img.isSelected {
-    height: 150px;
+    background-color: #fff;
 }
 
 div#text{
