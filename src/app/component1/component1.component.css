@@ -45,6 +45,10 @@ button.menuBut:hover{
     color: black;
 }
 
+button a{
+    text-decoration: none;
+}
+
 md-menu {
     position: absolute;
     z-index: 1000;
