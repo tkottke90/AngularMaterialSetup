@@ -10,6 +10,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
 
+import { Components } from './app-components'
+
 import { AppComponent } from './app.component';
 import { Component1Component } from './component1/component1.component';
 import { IntroComponentComponent } from './intro-component/intro-component.component';
@@ -36,16 +38,17 @@ import { UsageLog } from './services/site-log.service';
   declarations: [
     AppComponent,
     Component1Component,
-    IntroComponentComponent,
-    ProjectsComponent,
-    ProjectCardComponent,
-    ProDevComponent,
-    ProCardComponent,
-    SkillComponent,
-    SkillContainerComponent,
-    DetailContainer,
-    ProjectDisplay,
-    ProjectDetails
+    Components
+    // IntroComponentComponent,
+    // ProjectsComponent,
+    // ProjectCardComponent,
+    // ProDevComponent,
+    // ProCardComponent,
+    // SkillComponent,
+    // SkillContainerComponent,
+    // DetailContainer,
+    // ProjectDisplay,
+    // ProjectDetails
   ],
   imports: [
     BrowserModule,
