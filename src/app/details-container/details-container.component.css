@@ -17,10 +17,6 @@
 
         grid-template-columns: 7.5% 1fr 7.5%;
         grid-template-rows: 7.5% 1fr;
-        
-    /* Animations */
-        animation-name: fadeIn;
-        animation-duration: 1.25s;
 }
 
 button {
@@ -89,12 +85,4 @@ button {
 #achievements { 
     grid-column: 2;
     grid-row: 2
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; } 
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; } to { opacity: 0; } 
 }

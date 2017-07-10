@@ -15,6 +15,8 @@ export class ProjectDisplay {
     subject: string = "";
 
     projects: displayObject[] = [];
+    selectedProject: displayObject[] =[]
+
 
     constructor(private _DI: DisplayInfo, private _AM: AchManager){}
 
