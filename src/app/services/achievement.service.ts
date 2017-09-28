@@ -138,7 +138,7 @@ export class AchManager {
                     data.url
                 ));
             });
-        }).then(() => { this.isAchieveImport.next(true); /*console.log(this.achList);*/ });
+        }).then(() => { this.isAchieveImport.next(true); console.log(this.achList); });
         
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {

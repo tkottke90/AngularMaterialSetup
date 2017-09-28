@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
 
-import { Components } from './app-components'
+import { Components } from './app.components'
 
 import { AppComponent } from './app.component';
 // import { Component1Component } from './component1/component1.component';

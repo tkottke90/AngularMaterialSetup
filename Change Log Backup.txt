@@ -1,3 +1,45 @@
+7/6 - 7/7
+** Changes **
+	- Worked on project.details.component styles
+		- Removed styling as it was becoming too resource intensive and complex to run natually.  Decided to use Angular's Routing module to create a separate place for the details
+	
+
+** To-Do **
+	[ ] Work on building project displays (preview and detailed)
+		[ ] Work on Project data structure and import/export
+		[ ] Work on uploading project data to firebase db
+	[Future] Build entry point for creating content for user
+	[ ] Work on Intro-Component
+	[ ] Work on Education Component
+	[ ] Work on Resume Component
+	[ ] Work on Contact Component
+		[ ] Research sending email from form
+		
+** Error/Issues **
+
+7/1-7/4
+** Changes **
+	- Worked on animation for skill experience bars in skill.container-component and skill.component
+	- Started building project display (project-details) for computer browser
+		- Addded basic animation to expand and contract each project
+	- Started building infrastructure into display.info.service to manage which skill is expanded and restrict more than 1 skill from being expanded at a time.
+		- Created private DisplayObject to manage both projects and achievements
+		
+
+** To-Do **
+	[ ] Work on building project displays (preview and detailed)
+		[ ] Work on Project data structure and import/export
+		[ ] Work on uploading project data to firebase db
+	[X] Work on Animating Skills using Angular2 Animations
+	[Future] Build entry point for creating content for user
+	[ ] Work on Into-Component
+	[ ] Work on Education Component
+	[ ] Work on Resume Component
+	[ ] Work on Contact Component
+		[ ] Research sending email from form
+		
+** Error/Issues **
+
 6/30
 ** Changes **
 	- Worked on animating skills with Angular2 Animations
