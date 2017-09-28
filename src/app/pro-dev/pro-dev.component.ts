@@ -18,6 +18,7 @@ export class ProDevComponent {
       next: (a) => {
         this.AM.getRecent();
         this.achDisplay = a;
+        console.log(`recList: ${this.AM.recList.length}`);
         if(a){ this.currentAchievement = this.AM.recList.length > 0 ? this.AM.recList[this.achNav] : undefined; }
       }
     });

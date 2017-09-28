@@ -138,14 +138,14 @@ export class AchManager {
                     data.url
                 ));
             });
-        }).then(() => { this.isAchieveImport.next(true); console.log(this.achList); });
+        }).then(() => { 
+            this.isAchieveImport.next(true); 
+        });
         
         // Code to push lists to Firebase
         // this.achList.forEach((a) => {
         //     achieve.push(a.export());
         // })
-
-        this.util();
 
     }
 
@@ -184,7 +184,7 @@ export class AchManager {
     getRecent(){
 
         let today = new Date();
-        let thirtyDays = new Date(today.getTime() - 30*24*60*60*1000);
+        let thirtyDays = new Date(today.getTime() - 365*24*60*60*1000);
 
         this.recList = [];
 
