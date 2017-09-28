@@ -1,5 +1,10 @@
 # AngularMaterialSetup
 
+Project was initially designed to allow me to work with Angular Material using the Angular CLI Framework.  This project grew into through some inspiration into a project to create a personal portfolio to display my work and accompishments in a digital format.
+
+The project also uses Material Design Icons, and a Firebase backend to store the data that is displayed.
+
+## Angular/CLI
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 Will also require Angular2/Materal and Hammerjs to be installed to work with.
