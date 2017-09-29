@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Output , Input} from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { displayObject } from '../../services/display-info.service';
 import { Project } from '../../services/achievement.service';
 
 
@@ -15,7 +16,7 @@ export class ProjectDetails {
     this.isSelected = !this.isSelected;
 }
 
-@Input() project: Project;
+@Input() project: displayObject;
 
     isSelected: boolean = true;
     state = "preview";
@@ -23,8 +24,21 @@ export class ProjectDetails {
     projectName: string = "Test Project";
     description: string = "This is a test project"
 
-    constructor(){ }
+    constructor(){
+        console.log(this.project);
 
-    ngOnInit(){ }
+        //this.projectName = this.project.name;
+        //this.description = this.project.sDescription;
+     }
+
+    ngOnInit(){
+        console.log(this.project); 
+        
+        let pj = this.project.project;
+
+        this.projectName = pj.name;
+        this.description = pj.sDescription;
+
+    }
 
 }
