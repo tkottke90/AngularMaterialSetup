@@ -1,4 +1,5 @@
 import { Component1Component } from './component1/component1.component';
+import { MainContainer } from './main-container/main-container.component';
 import { IntroComponentComponent } from './intro-component/intro-component.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
@@ -13,6 +14,7 @@ import { ProjectView } from './project-display/project-view/project-view.compone
 
 export const Components = [
     Component1Component,
+    MainContainer,
     IntroComponentComponent,
     // Main Screen Project Category Displays
     ProjectsComponent,

@@ -2,28 +2,7 @@
 <app-component1></app-component1>
 <div class="spacer"></div>
 
-<!-- Content -->
-<div id="content">
-  <!-- About Me -->
-  <div id="intro">
-    <app-intro-component></app-intro-component>
-  </div>
-  <!-- Projects -->
-  <div id="projects"><app-projects></app-projects></div>  
-  <!-- Professional Development -->
-  <div id="pd"><app-pro-dev></app-pro-dev></div>
-  <!-- Education -->
-  <div id="ed">Education</div>
-  <!-- Resume -->
-  <div id="resume">Resume</div>
-  <!-- Contact -->
-  <div id="contact">
-    <md-card>
-      <button md-raised-button><md-icon>build</md-icon></button>
-      <input mdInput placeholder="First Name">
-    </md-card>
-  </div>
-
-</div>
+<!-- <app-container-main></app-container-main> -->
+<router-outlet></router-outlet>
 
 <app-details *ngIf="isDetailVisible"></app-details>
