@@ -35,21 +35,11 @@ import { UsageLog } from './services/site-log.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    // Component1Component,
-    Components
-    // IntroComponentComponent,
-    // ProjectsComponent,
-    // ProjectCardComponent,
-    // ProDevComponent,
-    // ProCardComponent,
-    // SkillComponent,
-    // SkillContainerComponent,
-    // DetailContainer,
-    // ProjectDisplay,
-    // ProjectDetails
+    Components,
   ],
   imports: [
     BrowserModule,
