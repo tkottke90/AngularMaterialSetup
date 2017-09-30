@@ -46,11 +46,11 @@ import { UsageLog } from './services/site-log.service';
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyAx57heQSfOPNg9FsQSemxYEAHPZylhNJs",
-      authDomain: "my-test-project-5984d.firebaseapp.com",
-      databaseURL: "https://my-test-project-5984d.firebaseio.com",
-      storageBucket: "my-test-project-5984d.appspot.com",
-      messagingSenderId: "764507748270"
+      apiKey: "AIzaSyCIgvwOS5FOZTcJixnV7DGraA7Tfc3Jlkw",
+      authDomain: "op-7f877.firebaseapp.com",
+      databaseURL: "https://op-7f877.firebaseio.com/",
+      storageBucket: "op-7f877.appspot.com",
+      messagingSenderId: "33209669393"
     }),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
