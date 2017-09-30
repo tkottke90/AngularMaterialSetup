@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener, Output , Input} from '@angular/core';
+import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { displayObject } from '../../services/display-info.service';
+import { DisplayInfo, displayObject } from '../../services/display-info.service';
+import { ProjectInfoService } from '../../projectinfo-container/pinfo.service';
 import { Project } from '../../services/achievement.service';
 
 
@@ -12,8 +14,9 @@ import { Project } from '../../services/achievement.service';
 export class ProjectDetails {
 
 @HostListener('click') clickProject() {
-    this.state = this.isSelected ? "expanded" : "preview";
-    this.isSelected = !this.isSelected;
+    this._PIS.project.next(this.project.project);
+    this._display.hideDisplay();
+    this._router.navigateByUrl('/projects');
 }
 
 @Input() project: displayObject;
@@ -24,12 +27,11 @@ export class ProjectDetails {
     projectName: string = "Test Project";
     description: string = "This is a test project"
 
-    constructor(){
-        console.log(this.project);
-
-        //this.projectName = this.project.name;
-        //this.description = this.project.sDescription;
-     }
+    constructor(
+        private _PIS: ProjectInfoService, 
+        private _router: Router, 
+        private _display: DisplayInfo
+    ){}
 
     ngOnInit(){
         console.log(this.project); 

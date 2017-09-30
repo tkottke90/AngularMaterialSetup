@@ -44,6 +44,7 @@ export class DisplayInfo{
         this.activeDisplayWindow.next(true); 
     
     }
+    
     hideDisplay(){ this.activeDisplayWindow.next(false); }
 
     getSkillProjects(skill: Skill){

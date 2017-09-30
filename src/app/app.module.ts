@@ -32,6 +32,7 @@ import { AchManager } from './services/achievement.service';
 import { SkillDisplay } from './services/skill-display.service';
 import { DisplayInfo } from './services/display-info.service';
 import { UsageLog } from './services/site-log.service';
+import { ProjectInfoService } from './projectinfo-container/pinfo.service';
 
 
 
@@ -60,7 +61,14 @@ import { UsageLog } from './services/site-log.service';
     MdButtonModule, 
     MdCheckboxModule
   ],
-  providers: [ MdInputContainer, AchManager, SkillDisplay, DisplayInfo, UsageLog ],
+  providers: [ 
+    MdInputContainer, 
+    AchManager, 
+    SkillDisplay, 
+    DisplayInfo, 
+    UsageLog,
+    ProjectInfoService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
