@@ -21,8 +21,6 @@ export class DisplayInfo{
     
     displayData: BehaviorSubject<displayObject[]> = new BehaviorSubject<displayObject[]>([]);
 
-
-
     activeDisplayWindow: BehaviorSubject<boolean> = new BehaviorSubject(false);
     projectsActive: boolean = false;
 

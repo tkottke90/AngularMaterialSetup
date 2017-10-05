@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProjectInfoService } from './pinfo.service'
+import { Project } from '../services/achievement.service';
 
 @Component({
   selector: 'app-projectinfo-container',
   templateUrl: './projectinfo-container.component.html',
   styleUrls: ['./projectinfo-container.component.css']
 })
-export class ProjectInfoContainerComponent implements OnInit {
+export class ProjectInfoContainerComponent {
 
-  constructor() { }
+  project: Project = null;
 
-  ngOnInit() {
+  constructor(private _PIS : ProjectInfoService) {
+    this._PIS.project.subscribe()
   }
+
+
 
 }

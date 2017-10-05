@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DisplayInfo, displayObject } from '../services/display-info.service';
 
 @Component({
     selector: 'app-details',
     templateUrl: './details-container.component.html',
-    styleUrls: [ './details-container.component.css' ]
+    styleUrls: [ './details-container.component.css' ],
+    animations: [
+        trigger('detailsState', [
+            state('inactive', 
+                style({
+                    transition: 'opacity'
+                })
+            )
+        ])
+    ]
 })
 export class DetailContainer {
 
