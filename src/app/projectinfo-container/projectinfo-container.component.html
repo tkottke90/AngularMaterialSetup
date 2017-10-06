@@ -1,5 +1,14 @@
-<div *ngIf="project!=null">
-  <h1>ProjectInfoContainer</h1>
+<div id="projectContainer" *ngIf="project!=null">
+  <div id="nav">
+
+  </div>
+  <div id="content">
+    <h2 id="name">{{this.project.name}}</h2>
+    <p id="description">{{this.project.description}}</p>
+    <div id="imgContainer">
+      
+    </div>
+  </div>
 </div>
 
 <div id="noProjectContainer" *ngIf="project==null">

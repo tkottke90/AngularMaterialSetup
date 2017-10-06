@@ -9,5 +9,8 @@ export class ProjectInfoService {
 
     project = new BehaviorSubject<Project>(null);
 
+    listener = this.project.subscribe({
+        next: (v) => console.log(`pinfo service - project: ${v}`)
+    })
 }
 

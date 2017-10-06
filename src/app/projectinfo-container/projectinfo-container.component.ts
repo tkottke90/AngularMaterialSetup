@@ -12,7 +12,9 @@ export class ProjectInfoContainerComponent {
   project: Project = null;
 
   constructor(private _PIS : ProjectInfoService) {
-    this._PIS.project.subscribe()
+    this._PIS.project.subscribe({
+      next: (p) => this.project = p
+    })
   }
 
 

@@ -1,3 +1,10 @@
+/* host {} */
+
+#projectContainer {
+    width: 100%;
+    margin-top: 1%;
+}
+
 #noProjectContainer {
     width: 100%;
     padding: 3% 0;
@@ -13,4 +20,30 @@ a {
     margin-top: 1%;
     background-color: #3b8dc4;
     color: #fff;
+}
+
+/* Computer */
+
+
+
+/* Mobile */
+
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) {
+
+    #projectContainer {
+        display: grid;
+        grid-template-rows: 100px 100px 90vw;
+    }
+
+    #name {
+        width: 100%;
+        text-align: center;
+    }
+
+    #description {
+        
+    }
 }
