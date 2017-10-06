@@ -13,11 +13,11 @@ import { Project } from '../../services/achievement.service';
 })
 export class ProjectDetails {
 
-@HostListener('click') clickProject() {
-    this._PIS.project.next(this.project.project);
-    this._display.hideDisplay();
-    this._router.navigateByUrl('/projects');
-}
+//@HostListener('click') clickProject() {
+//    this._PIS.project.next(this.project.project);
+//    this._display.hideDisplay();
+//    this._router.navigateByUrl('/projects');
+//}
 
 @Input() project: displayObject;
 
@@ -43,4 +43,9 @@ export class ProjectDetails {
 
     }
 
+    navDetails(){
+        this._PIS.project.next(this.project.project);
+        this._display.hideDisplay();
+        this._router.navigateByUrl('/projects');
+    }
 }
