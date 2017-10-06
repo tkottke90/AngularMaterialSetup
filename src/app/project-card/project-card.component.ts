@@ -30,7 +30,14 @@ export class ProjectCardComponent implements OnInit {
   imageURL: string = "";
 
   constructor(private SD: SkillDisplay, private DI: DisplayInfo) { 
-  }
+
+    console.log(`Window Outer Width: ${window.outerWidth}`);
+
+    if(window.outerWidth < 550){
+      this.isHoverTarget = true;
+    }
+
+    }
 
   ngOnInit() {
     this.title = this.card.title;
