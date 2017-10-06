@@ -50,3 +50,8 @@ div#button {
     flex-direction: row-reverse;
 
 }
+
+button span {
+    font-weight: bold;
+    color: #7fa9c5;
+}
