@@ -39,7 +39,7 @@ export class ProjectDetails {
         let pj = this.project.project;
 
         this.projectName = pj.name;
-        this.description = pj.sDescription;
+        this.description = this.snipDescription(pj.sDescription);
 
     }
 
@@ -47,5 +47,13 @@ export class ProjectDetails {
         this._PIS.project.next(this.project.project);
         this._display.hideDisplay();
         this._router.navigateByUrl('/projects');
+    }
+
+    snipDescription(desc : string):string{
+        if(desc.length < 67){
+            return desc;
+        } else {
+            return (`${desc.substr(0,67)}...`);
+        }
     }
 }

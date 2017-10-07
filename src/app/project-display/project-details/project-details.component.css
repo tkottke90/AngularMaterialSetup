@@ -42,6 +42,10 @@ div#text{
     grid-column: 2;
 }
 
+#text h2 {
+    font-weight: bold;
+}
+
 div#button {
     grid-column: 2;
     grid-row: 2;
@@ -54,4 +58,14 @@ div#button {
 button span {
     font-weight: bold;
     color: #7fa9c5;
+}
+
+@media screen and (max-width: 500px){
+    
+    md-card {
+        height: 25%;
+    }
+
+
+
 }
