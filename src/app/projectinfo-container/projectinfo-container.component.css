@@ -17,7 +17,7 @@
 }
 
 a {
-    margin-top: 1%;
+    margin-top: 2%;
     background-color: #3b8dc4;
     color: #fff;
 }
@@ -29,8 +29,7 @@ a {
 /* Mobile */
 
 @media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+and (max-width: 500x) 
 and (-webkit-device-pixel-ratio: 3) {
 
     #projectContainer {
@@ -38,7 +37,7 @@ and (-webkit-device-pixel-ratio: 3) {
         grid-template-rows: 100px 100px 90vw;
     }
 
-    #name {
+    h2 #name {
         width: 100%;
         text-align: center;
     }
