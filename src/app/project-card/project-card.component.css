@@ -68,3 +68,16 @@ img {
 img.hoverTarget{
     opacity: 0.65;
 }
+
+@media screen and (max-width: 500px){
+
+    h1 {
+        top: 200px;
+        opacity: 1;
+    }
+
+    img {
+        opacity: 0.65;
+    }
+
+}

@@ -61,10 +61,10 @@ div#contact {
 
 @media only screen and (max-width: 525px){
     div#content {
-        width: 100%;
+        width: 90vmin;
         display: grid;
         box-sizing: border-box;
 
-        grid-template-rows: 200px 1450px 400px 100px 100px 100px;
+        grid-template-rows: 200px 1450px 650px 100px 100px 100px;
     }
 }

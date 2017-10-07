@@ -12,6 +12,7 @@ h2 {
     grid-row: 1;
 
     margin-top: 10px;
+    box-sizing: border-box;
 
     text-align: center;
     color: #fff;
@@ -35,20 +36,18 @@ button {
     color: #3a8bc2;
 }
 
-@media only screen and (max-width: 1000px){
-
-    div#recents {
-        
-    }
-}
-
 @media only screen and (max-width: 920px){
     
     :host {
-        width: 100%;
+        width: 90vmin;
+
+        grid-template-rows: 50px 1fr 60px;
     }
 
+
     div#recents {
+        width: inherit;
+
         flex-direction: column ;
         justify-content: space-around;
         align-items: center;

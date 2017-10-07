@@ -1,6 +1,6 @@
 :host {
     width: 55%;
-    min-width: 430px;
+    /* min-width: 430px; */
     height: 250px;
 
     position: relative;
@@ -112,4 +112,12 @@ md-card {
 #skill-nav button {
     width: 25%;
     padding: 0;
+}
+
+@media screen and (max-width: 500px){
+    
+    :host{
+        width: inherit;
+    }
+
 }
