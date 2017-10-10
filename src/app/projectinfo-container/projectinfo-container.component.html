@@ -3,10 +3,19 @@
 
   </div>
   <div id="content">
+    <img src="{{this.project.images['Front Page']}}" *ngIf="this.project.images['Front Page']!=''">
     <h2 id="name">{{this.project.name}}</h2>
     <p id="description">{{this.project.description}}</p>
+
+    <h3>Project Images:</h3>
     <div id="imgContainer">
-      
+      <button id="left" md-button>
+        <i class="mdi mdi-chevron-left mdi-24px" style="color: black;"></i>
+      </button>
+      <img src="{{this.curImg}}" >
+      <button id="right" md-button>
+        <i class="mdi mdi-chevron-right mdi-24px" style="color: black;"></i>
+      </button>
     </div>
   </div>
 </div>

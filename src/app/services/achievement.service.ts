@@ -87,7 +87,11 @@ export class AchManager {
             {
                 "Concept" : "",
                 "Front Page" : "",
-                "Project View" : ""
+                "Project View" : "",
+                "Roll" : [
+                    "https://firebasestorage.googleapis.com/v0/b/op-7f877.appspot.com/o/portfolio%2FDesign%2001.JPG?alt=media&token=f8b43118-0923-4abb-80e8-d29493edbd73",
+                    "https://firebasestorage.googleapis.com/v0/b/op-7f877.appspot.com/o/portfolio%2FDesign%2002.JPG?alt=media&token=3aee0765-bff2-4dfc-a81d-77a133c4c040"
+                ]
             }
         )
      ]
