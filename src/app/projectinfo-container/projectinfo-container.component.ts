@@ -10,7 +10,7 @@ import { Project } from '../services/achievement.service';
 export class ProjectInfoContainerComponent {
 
   project: Project = null;
-  curImg: string = "";
+  curImg: number;
   images: string[];
 
   constructor(private _PIS : ProjectInfoService) {
@@ -19,12 +19,29 @@ export class ProjectInfoContainerComponent {
         this.project = p
         if(this.project != null){
           this.images = this.project.images["Roll"];
-          this.curImg = this.images[0];
+          this.curImg = 0;
+        
+          let temp = {
+            'ImagesLength' : (this.images.length - 1),
+            'CurImg' : this.curImg,
+            'ImageURL' : this.images[this.curImg]
+          }
+        
+          console.log(temp);
         }
       }
     })
   }
 
 
+  Roll(direct){
+    this.curImg += direct; 
+
+    if(this.curImg == (this.images.length)){
+      this.curImg = 0;
+    } else if(this.curImg == -1){
+      this.curImg = this.images.length - 1;
+    }
+  }
 
 }

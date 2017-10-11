@@ -75,7 +75,7 @@ export class AchManager {
             "WIP",
             "This is project I created to display my work in a digital format as well as explore web design using the Angular Framework and Firebase",
             [
-                ["HTML", 7],
+                ["HTML", 7], 
                 ["CSS", 8],
                 ["Typescript", 9],
                 ["Angular2", 10]
