@@ -17,17 +17,10 @@ export class ProjectInfoContainerComponent {
     this._PIS.project.subscribe({
       next: (p) => {
         this.project = p
+        console.log(this.project);
         if(this.project != null){
           this.images = this.project.images["Roll"];
           this.curImg = 0;
-        
-          let temp = {
-            'ImagesLength' : (this.images.length - 1),
-            'CurImg' : this.curImg,
-            'ImageURL' : this.images[this.curImg]
-          }
-        
-          console.log(temp);
         }
       }
     })

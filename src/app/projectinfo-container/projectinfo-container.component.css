@@ -48,16 +48,21 @@ img {
 @media only screen and (max-width: 500px) {
 
     #projectContainer {
-        grid-template-rows: 2px 100px 90vw;
+        grid-template-rows: 1fr 1fr;
 
     }
 
     /* Nav */
 
+    #nav {
+        grid-row: 2;
+    }
 
 
     /* Content */
     #content {
+        grid-row: 1;
+
       display: grid;  
       grid-template-rows: 30px ;
 
@@ -95,7 +100,7 @@ img {
     }
     
     h3 { 
-        margin: 3% auto;
+        margin: 3% 5%;
     }
 
     #right {
@@ -106,5 +111,10 @@ img {
     #left {
         grid-row: 2;
         grid-column: 1;
+    }
+
+    #list {
+        display: flex;
+        justify-content: space-around;
     }
 }
