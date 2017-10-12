@@ -23,7 +23,7 @@ a.navButton {
     color: #fff;
 }
 
-.img-cont-header {
+.cont_header-white {
     color: #fff;
 }
 
@@ -77,7 +77,7 @@ img {
     }
 
     .block {
-        margin-bottom: 5%;
+        padding: 2% 0;
     }
 
     h2#name {
@@ -102,6 +102,10 @@ img {
         width: 100%;
     }
     
+    .mobile_cont_header-white {
+        color: #fff;
+    }
+
     .mobile__block__odds {
         background-color: #3b8dc4; 
     }
@@ -115,7 +119,7 @@ img {
     }
     
     h3 { 
-        margin: 3% 5%;
+        margin: 3%;
     }
 
     #imgContainer h3 { 
