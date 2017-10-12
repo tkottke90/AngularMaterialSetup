@@ -17,9 +17,17 @@
 
 }
 
-a {
+a.navButton {
     margin-top: 2%;
     background-color: #3b8dc4;
+    color: #fff;
+}
+
+.img-cont-header {
+    color: #fff;
+}
+
+.roll-button {
     color: #fff;
 }
 
@@ -63,9 +71,13 @@ img {
     #content {
         grid-row: 1;
 
-      display: grid;  
-      grid-template-rows: 30px ;
+      display: flex;  
+      flex-direction: column ;
 
+    }
+
+    .block {
+        margin-bottom: 5%;
     }
 
     h2#name {
@@ -81,8 +93,8 @@ img {
     }
 
     #images { 
-        grid-column: 1/3;
-        grid-row: 1;
+        grid-column: 2/4;
+        grid-row: 2;
     }
 
     img {
@@ -90,31 +102,44 @@ img {
         width: 100%;
     }
     
+    .mobile__block__odds {
+        background-color: #3b8dc4; 
+    }
+
     #imgContainer {
         display: grid;
-        width: 90vmin;
+        width: 100vw;
         margin: auto;
-        /* margin-top: 5%; */
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 120vmin 50px;
+        grid-template-columns: 10% 40% 40% 10%;
+        grid-template-rows: 45px 105vmin 50px;
     }
     
     h3 { 
         margin: 3% 5%;
     }
 
+    #imgContainer h3 { 
+        grid-column: 1/5;
+        grid-row: 1;
+    }
+
     #right {
-        grid-row: 2;
-        grid-column: 2;
+        grid-row: 3;
+        grid-column: 3/5;
     }
     
     #left {
-        grid-row: 2;
-        grid-column: 1;
+        grid-row: 3;
+        grid-column: 1/3;
     }
 
     #list {
         display: flex;
         justify-content: space-around;
+    }
+
+    #links{
+        display: flex;
+        justify-content: space-evenly;
     }
 }

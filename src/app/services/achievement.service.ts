@@ -80,10 +80,13 @@ export class AchManager {
                 ["Typescript", 9],
                 ["Angular2", 10]
             ],
-            {
-                "git-repository" : "https://github.com/tkottke90/AngularMaterialSetup"
-            },
-            { },
+            [
+                { "name" : "website", "url" : "https://tdkottke.com"},
+                { "name" : "git-repository", "url" : "https://github.com/tkottke90/AngularMaterialSetup"}
+            ],
+            [
+                { "name" : "Concept", "url" : "https://firebasestorage.googleapis.com/v0/b/op-7f877.appspot.com/o/portfolio%2FPersonal%20Portfolio%20Concept%20v1.0.pdf?alt=media&token=b0796771-703a-45f8-99e3-89a57a50dda8"}
+            ],
             {
                 "Concept" : "",
                 "Front Page" : "",

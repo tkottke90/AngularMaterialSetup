@@ -1,15 +1,46 @@
 <div id="projectContainer" *ngIf="this.project!=null">
   <div id="nav">
+    <!--Thumbnail Image (Computer Only)-->
+    
+    <!--Skills Associated with Project-->
+    <div id="skillsContiner" class="block">
+        <h3>Skills used for Project:</h3>
+        <div id="list">
+          <h5 *ngFor="let skill of this.project.skills">{{skill.name}}</h5>
+      </div>
+    </div>
+
+    <!--Project Links-->
+    <div class="block block mobile__block__odds" *ngIf="this.project.links != null || { }">
+      <h3>Links:</h3>
+      <div id="links">
+        <h4 *ngFor="let link of this.project.links"><a href="{{link['url']}}">{{link["name"]}}</a></h4>
+      </div>
+    </div>
+
+    <!--Documents Available-->
+    <div id="doc" class="block" *ngIf="this.project.downloads != null || { }">
+      <h3>Documents:</h3>
+      <ul>
+          <li *ngFor="let doc of this.project.downloads"><a href="{{doc['url']}}" target="_blank">{{doc["name"]}}</a></li>
+      </ul>
+    </div>
 
   </div>
-  <div id="content">
-    <h2 id="name">{{this.project.name}}</h2>
-    <p id="description">{{this.project.description}}</p>
 
-    <h3>Project Images:</h3>
-    <div id="imgContainer">
-      <button id="left" md-button (click)="this.Roll(-1)">
-        <i class="mdi mdi-chevron-left mdi-24px" style="color: black;"></i>
+  <div id="content">
+    <div class="block details">
+      <!--Project Name-->
+      <h2 id="name">{{this.project.name}}</h2>
+      <!--Description of Project-->
+      <p id="description">{{this.project.description}}</p>
+    </div>
+    
+    <!--Project Images-->
+    <div id="imgContainer" class="block mobile__block__odds">
+      <h3 class="img-cont-header">Project Images:</h3>
+      <button id="left" md-button (click)="this.Roll(-1)" class="roll-button">
+        <i class="mdi mdi-chevron-left mdi-24px" style="color: #fff;"></i>
       </button>
       <div id="images">
           <a *ngFor="let image of this.images" href="{{image}}"> 
@@ -18,22 +49,15 @@
               [ngClass]="{ selected : (image == this.images[curImg]) }">
           </a>
       </div>
-      <button id="right" md-button (click)="this.Roll(1)">
-        <i class="mdi mdi-chevron-right mdi-24px" style="color: black;"></i>
+      <button id="right" md-button (click)="this.Roll(1)" class="roll-button">
+        <i class="mdi mdi-chevron-right mdi-24px" style="color: #fff;"></i>
       </button>
     </div>
-
-    <div id="skillsContiner">
-      <h3>Skills used for Project:</h3>
-      <div id="list">
-        <h5 *ngFor="let skill of this.project.skills">{{skill.name}}</h5>
-    </div>
-
   </div>
 
 </div>
 
 <div id="noProjectContainer" *ngIf="this.project==null">
   <h1>No Project Selected</h1>
-  <a href="/" class="mat-button" md-raised-button><span>Home Page</span></a>
+  <a href="/" class="mat-button" md-raised-button class="navButton"><span>Home Page</span></a>
 </div>
