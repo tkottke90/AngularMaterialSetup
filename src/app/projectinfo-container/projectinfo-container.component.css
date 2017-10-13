@@ -1,10 +1,5 @@
 /* host {} */
 
-#projectContainer {
-    display: grid;
-    width: 100%;
-    margin-top: 1%;
-}
 
 #noProjectContainer {
     width: 100%;
@@ -48,6 +43,28 @@ img {
 }
 
 /* Computer */
+
+#projectContainer {
+    display: grid;
+    width: 100%;
+    margin-top: 1%;
+
+    grid-template-columns: 20% 80%;
+}
+
+#nav {
+    grid-column: 1;
+
+    
+}
+
+#content {
+    grid-column: 2;
+
+    display: grid;
+    grid-template-rows: 300px 500px;
+}
+
 
 
 

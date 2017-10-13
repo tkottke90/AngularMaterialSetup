@@ -40,7 +40,7 @@
     <div id="imgContainer" class="block mobile__block__odds">
       <h3 class="mobile_cont_header-white">Project Images:</h3>
       <button id="left" md-button (click)="this.Roll(-1)" class="roll-button">
-        <i class="mdi mdi-chevron-left mdi-24px" style="color: #fff;"></i>
+        <i class="mdi mdi-chevron-left mdi-24px mobile_cont_header-white"></i>
       </button>
       <div id="images">
           <a *ngFor="let image of this.images" href="{{image}}"> 
@@ -50,7 +50,7 @@
           </a>
       </div>
       <button id="right" md-button (click)="this.Roll(1)" class="roll-button">
-        <i class="mdi mdi-chevron-right mdi-24px" style="color: #fff;"></i>
+        <i class="mdi mdi-chevron-right mdi-24px mobile_cont_header-white"></i>
       </button>
     </div>
   </div>
