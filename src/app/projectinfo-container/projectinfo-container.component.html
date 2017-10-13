@@ -29,7 +29,7 @@
   </div>
 
   <div id="content">
-    <div class="block details">
+    <div class="block block_details">
       <!--Project Name-->
       <h2 id="name">{{this.project.name}}</h2>
       <!--Description of Project-->
@@ -37,19 +37,19 @@
     </div>
     
     <!--Project Images-->
-    <div id="imgContainer" class="block mobile__block__odds">
-      <h3 class="mobile_cont_header-white">Project Images:</h3>
-      <button id="left" md-button (click)="this.Roll(-1)" class="roll-button">
+    <div id="imgContainer" class="block block_images mobile__block__odds">
+      <h3 class="mobile_cont_header-white images_header">Project Images:</h3>
+      <button id="left" md-button (click)="this.Roll(-1)" class="roll-button images_left-button">
         <i class="mdi mdi-chevron-left mdi-24px mobile_cont_header-white"></i>
       </button>
-      <div id="images">
-          <a *ngFor="let image of this.images" href="{{image}}"> 
+      <div id="images" class="images_roll-cont">
+          <a *ngFor="let image of this.images" href="{{image}}" class=""> 
             <img 
               src="{{image}}"  
               [ngClass]="{ selected : (image == this.images[curImg]) }">
           </a>
       </div>
-      <button id="right" md-button (click)="this.Roll(1)" class="roll-button">
+      <button id="right" md-button (click)="this.Roll(1)" class="roll-button images_right-button">
         <i class="mdi mdi-chevron-right mdi-24px mobile_cont_header-white"></i>
       </button>
     </div>
